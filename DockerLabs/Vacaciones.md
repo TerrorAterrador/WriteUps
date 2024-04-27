@@ -53,8 +53,7 @@ Una vez conocemos el usuario y su contraseña probramos a entrar a la máquina V
 ## Escala de Privilegios
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **camilo**, podemos escribir `bash` para poder estar más cómodos operando en la máquina. <br>
 Si ejecutamos `sudo -l` podemos ver que no podemos correr nada como sudo.<br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/5c6cbc3a-5961-49bc-94ec-184653555547)
-<br>
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/5c6cbc3a-5961-49bc-94ec-184653555547) <br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
 <br>
 <br>
@@ -67,7 +66,7 @@ Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de perm
 <br>
 <br>
 Por lo que ahora deberíamos buscar el correo que había enviado Juan para Camilo si hacemos `find / -name "correo" 2>/dev/null`, vemos que no hay nada. <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/4ab0c8ef-4680-4362-8eeb-69b827c94198)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/8dfbe740-b75a-4118-9a90-9cb4bdb761a8)
  <br>
  <br>
 `-name` ⮞ nombre que queremos encontrar <br>
