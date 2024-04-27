@@ -75,8 +75,20 @@ En cambio si probamos a filtrar por **mail** `find / -name "mail" 2>/dev/null` n
 ![find_mail](find_correo.jpg) 
 <br>
 <br>
-Por lo que nos dirigimos a esa ruta
-
+Por lo que nos dirigimos a esa ruta **/var/mail** vemos que dentro de la carpeta camilo hay un archivo llamado **correo.txt** y si hacemos `cat correo.txt` vemos lo siguiente: <br>
+![archivo](archivo.jpg) 
+<br>
+<br>
+Por lo que vamos a a probar camibar al usuario **juan** que era el que había enviado el correo, si hacemos `su juan` para cambiar de usuario y ponemos la contraseña, vemos que hemos cambiado al usuario juan.<br>
+![juan](juan.jpg) 
+<br>
+<br>
+Ahora que estamos como juan vamos a listar los permisos que podemos ejecutar como **sudo** con `sudo -l`, y vemos que podemos ejecutar **/usr/bin/ruby**. <br>
+![ruby](ruby.jpg)
+<br>
+<br>
+Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de sudo en ruby, y nos encontramos con el siguiente comando `sudo ruby -e 'exec "/bin/bash"'`, probamos a ejecutarlo en la máquina y listo hemos elevado a root. <br>
+![root](root.jpg) 
 
 
 
