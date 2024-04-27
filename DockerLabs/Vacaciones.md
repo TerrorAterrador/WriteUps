@@ -74,7 +74,7 @@ En cambio si probamos a filtrar por **mail** `find / -name "mail" 2>/dev/null` n
 <br>
 <br>
 Por lo que nos dirigimos a esa ruta **/var/mail** vemos que dentro de la carpeta camilo hay un archivo llamado **correo.txt** y si hacemos `cat correo.txt` vemos lo siguiente: <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/9ffb2084-c614-4dec-a3b4-1d8329e77eda)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/4161dfe9-b0f5-4bc2-b606-553856bb5113)
 <br>
 <br>
 Por lo que vamos a a probar camibar al usuario **juan** que era el que había enviado el correo, si hacemos `su juan` para cambiar de usuario y ponemos la contraseña, vemos que hemos cambiado al usuario juan.<br>
