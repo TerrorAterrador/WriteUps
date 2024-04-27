@@ -1,4 +1,4 @@
-# [Vacaciones](https://dockerlabs.es/)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/f3969498-e160-4f38-9602-b9833f29767a)# [Vacaciones](https://dockerlabs.es/)
 
 ## Despliegue
 
@@ -21,17 +21,17 @@ Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -
 `-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk) <br>
 <br>
 Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**<br>
-![nmap](nmap.jpg)<br>
+![nmap](nmap.jpg)
 <br>
 
 ## Página Web (Puerto 80)
 
 Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como URL. Podemos ver que la página está completamente en blanco. <br>
-![navegador](navegador.jpg) <br>
+![navegador](navegador.jpg) 
 <br>
 
 Pasemos a ver el código fuente `click derecho View Page Source`, vemos que hay un comentario y encontramos dos nombres **Juan** y **Camilo** <br>
-![codigo_fuente](codigo_fuente.jpg) <br>
+![codigo_fuente](codigo_fuente.jpg) 
 <br>
 
 ## Medusa / Hydra
@@ -40,7 +40,7 @@ Ahora conocemos dos usuarios con posibilidades de ser candidatos a pertenecer a 
 `-U` ⮞ el archivo con los posibles usuarios es decir (camilo,juan) <br> 
 `-P` ⮞ ruta al diccionario [rockyou]([rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) <br> 
 `-M` ⮞ modulo que sería el protocolo ssh <br>
-![medusa](medusa.jpg) <br>
+![medusa](medusa.jpg)
 <br>
 
 ## SSH (Puerto 22)
@@ -49,8 +49,26 @@ Una vez conocemos el usuario y su contraseña probramos a entrar a la máquina V
 
 ## Escala de Privilegios
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **camilo**, podemos escribir `bash` para poder estar más cómodos operando en la máquina. <br>
-Si ejecutamos `sudo -l` ![sudo_-l](sudo_-l) podemos ver que no podemos correr nada como sudo, al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de permisos SUID no encontramos nada potencial para escalar privilegios. ![find](find.jpg)
-
+Si ejecutamos `sudo -l` podemos ver que no podemos correr nada como sudo.<br>
+![sudo_-l](sudo_-l)
+ <br>
+`-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
+<br>
+Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de permisos SUID no encontramos nada potencial para escalar privilegios. <br>
+![find](find.jpg). 
+<br>
+`/` ⮞ buscamos desde la raíz
+`-perm -4000` ⮞ mostrar los permisos SUID <br>
+`2>/dev/null` ⮞ para que no nos muestre los errores <br>
+<br>
+Por lo que ahora deberíamos buscar el correo que había enviado Juan para Camilo si hacemos `find / -name "correo" 2>/dev/null`, vemos que no hay nada. <br>
+![find_correo](find_correo.jpg)
+ <br>
+`-name` ⮞ nombre que queremos encontrar <br>
+En cambio si probamos a filtrar por **mail** `find / -name "mail" 2>/dev/null` nos encontramos con lo siguiente: <br>
+![find_mail](find_correo.jpg) 
+<br>
+Por lo que nos dirigimos a esa ruta
 
 
 
