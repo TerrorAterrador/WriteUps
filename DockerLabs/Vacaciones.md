@@ -70,7 +70,7 @@ Por lo que ahora deberíamos buscar el correo que había enviado Juan para Camil
  <br>
 `-name` ⮞ nombre que queremos encontrar <br>
 En cambio si probamos a filtrar por **mail** `find / -name "mail" 2>/dev/null` nos encontramos con lo siguiente: <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/a124a789-1550-47a9-86d2-00c346672ffb)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/82093a77-4392-4805-acd3-15f78656e7b5)
 <br>
 <br>
 Por lo que nos dirigimos a esa ruta **/var/mail** vemos que dentro de la carpeta camilo hay un archivo llamado **correo.txt** y si hacemos `cat correo.txt` vemos lo siguiente: <br>
