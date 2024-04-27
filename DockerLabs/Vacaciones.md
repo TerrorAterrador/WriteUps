@@ -23,7 +23,6 @@ Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -
 <br>
 Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**
 ![nmap](https://github.com/TerrorAterrador/WriteUps/assets/128630899/ef28633b-ba49-4df1-8d2d-4efc516c8471)
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/fa4117bc-4f7d-478d-8831-70b231bde22b)
 
 <br>
 <br>
@@ -35,7 +34,7 @@ Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introduci
 <br>
 <br>
 Pasemos a ver el código fuente `click derecho View Page Source`, vemos que hay un comentario y encontramos dos nombres **Juan** y **Camilo** <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/09f686e4-ac3c-48e8-ac0f-c0ca99cd41f0)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/1560326c-a5b2-402d-b350-300e194a108c)
 <br>
 <br>
 ## Medusa / Hydra
