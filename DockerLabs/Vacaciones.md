@@ -36,7 +36,6 @@ Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introduci
 Pasemos a ver el código fuente `click derecho View Page Source`, vemos que hay un comentario y encontramos dos nombres **Juan** y **Camilo** <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/1560326c-a5b2-402d-b350-300e194a108c)
 <br>
-<br>
 ## Medusa / Hydra
 Ahora conocemos dos usuarios con posibilidades de ser candidatos a pertenecer a la máquina Vacaciones. Gracias a medusa haremos un ataque de fuerza fruta al puerto 22, el cual aloja el servicio SSH. `medusa -h 172.17.0.2 -U users -P /usr/share/wordlists/rockyou.txt -M ssh` <br>
 `-h` ⮞ dirección IP de la máquina victima <br>
