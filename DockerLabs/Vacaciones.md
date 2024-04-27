@@ -20,8 +20,23 @@ Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -
 `-Pn` ⮞ ignora si esta activa o no la IP<br> 
 `-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk) <br>
 <br>
-Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos <mark>22</mark> y **80**<br>
-![nmap](nmap.jpg)
+Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**<br>
+![nmap](nmap.jpg)<br>
+<br>
+
+### Página Web (Puerto 80)
+
+Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como URL. Podemos ver que la página está completamente en blanco. <br>
+![navegador](navegador.jpg) <br>
+<br>
+
+Pasemos a ver el código fuente `click derecho View Page Source`, vemos que hay un comentario y encontramos dos nombres **Juan** y **Camilo** <br>
+![codigo_fuente](codigo_fuente.jpg) <br>
+<br>
+
+### Medusa / Hydra
+
+
 
 
 
