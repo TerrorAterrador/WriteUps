@@ -12,14 +12,14 @@ Una vez desplegada comprobamos que tenemos conectividad con `ping -c 1 172.17.0.
 
 Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -vvv -n -Pn 172.17.0.2 -oG allPorts`
 ![nmap](nmap.jpg) <br>
-`-p-` ⮞ aplicar reconocimiento a todos los puertos
-`--open` ⮞ solo a los que esten abiertos
-`--min-rate 5000` ⮞ para enviar paquetes más rápido
-`-sS` ⮞ para descubrir puertos de manera silenciosa y rápida
-`-vvv` ⮞ conforme descubre un puerto nos lo muestra por pantalla
-`-n` ⮞ no aplica la resolución DNS (tarda mucho en el caso de que no pongamos dicho parámetro)
-`-Pn` ⮞ ignora si esta activa o no la IP
-`-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk)
+`-p-` ⮞ aplicar reconocimiento a todos los puertos <br>
+`--open` ⮞ solo a los que esten abiertos <br>
+`--min-rate 5000` ⮞ para enviar paquetes más rápido <br> 
+`-sS` ⮞ para descubrir puertos de manera silenciosa y rápida <br> 
+`-vvv` ⮞ conforme descubre un puerto nos lo muestra por pantalla <br> 
+`-n` ⮞ no aplica la resolución DNS (tarda mucho en el caso de que no pongamos dicho parámetro)<br> 
+`-Pn` ⮞ ignora si esta activa o no la IP<br> 
+`-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk) <br>
 
 
 
