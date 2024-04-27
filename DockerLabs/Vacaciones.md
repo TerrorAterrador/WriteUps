@@ -23,15 +23,13 @@ Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -
 <br>
 Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**
 ![nmap](https://github.com/TerrorAterrador/WriteUps/assets/128630899/ef28633b-ba49-4df1-8d2d-4efc516c8471)
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/ebec485f-cd34-49dc-94d5-9f6d70076abd)
-
 <br>
 <br>
 
 ## Página Web (Puerto 80)
 
 Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como URL. Podemos ver que la página está completamente en blanco. <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/24730add-1f94-4908-958e-10b3fe112a06)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/9590b22b-e92e-4576-8c81-8e00036f3abb)
 <br>
 <br>
 Pasemos a ver el código fuente `click derecho View Page Source`, vemos que hay un comentario y encontramos dos nombres **Juan** y **Camilo** <br>
