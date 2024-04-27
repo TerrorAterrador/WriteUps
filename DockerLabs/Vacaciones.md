@@ -23,6 +23,8 @@ Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -
 <br>
 Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**
 ![nmap](https://github.com/TerrorAterrador/WriteUps/assets/128630899/ef28633b-ba49-4df1-8d2d-4efc516c8471)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/fa4117bc-4f7d-478d-8831-70b231bde22b)
+
 <br>
 <br>
 
