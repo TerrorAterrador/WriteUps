@@ -2,7 +2,7 @@
 
 ## Despliegue
 
-Primero desplegamos la máquina (si no sabes en la página de DockerLabs ahí un pdf que lo explica).
+Primero desplegamos la máquina con `bash auto_deploy.sh vacaciones.tar` (si no sabes en la página de DockerLabs ahí un pdf que lo explica).
 
 ## Reconocimiento
 
