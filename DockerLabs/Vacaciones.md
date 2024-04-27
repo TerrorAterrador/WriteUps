@@ -6,7 +6,7 @@ Primero desplegamos la máquina (si no sabes en la página de DockerLabs ahí un
 
 ### Reconocimiento
 
-Una vez desplegada comprobamos que tenemos conectividad con `ping -c -1 *IP*` <br>
+Una vez desplegada comprobamos que tenemos conectividad con `ping -c -1 \*IP\*` <br>
 ![ping](ping.jpg)
 
 
