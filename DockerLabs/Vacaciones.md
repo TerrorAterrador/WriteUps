@@ -20,7 +20,7 @@ Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -
 `-Pn` ⮞ ignora si esta activa o no la IP<br> 
 `-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk) <br>
 <br>
-Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**<br>
+Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos ==22== y **80**<br>
 ![nmap](nmap.jpg)
 
 
