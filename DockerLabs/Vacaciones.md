@@ -54,8 +54,7 @@ Una vez conocemos el usuario y su contraseña probramos a entrar a la máquina V
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **camilo**, podemos escribir `bash` para poder estar más cómodos operando en la máquina. <br>
 Si ejecutamos `sudo -l` podemos ver que no podemos correr nada como sudo.<br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/5c6cbc3a-5961-49bc-94ec-184653555547)
- <br>
- <br>
+<br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
 <br>
 <br>
