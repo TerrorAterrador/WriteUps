@@ -23,8 +23,11 @@ Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -
 <br>
 Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**
 ![nmap](https://github.com/TerrorAterrador/WriteUps/assets/128630899/ef28633b-ba49-4df1-8d2d-4efc516c8471)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/ebec485f-cd34-49dc-94d5-9f6d70076abd)
+
 <br>
 <br>
+
 ## Página Web (Puerto 80)
 
 Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como URL. Podemos ver que la página está completamente en blanco. <br>
