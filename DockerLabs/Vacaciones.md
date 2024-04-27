@@ -33,7 +33,7 @@ Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introduci
 <br>
 <br>
 Pasemos a ver el código fuente `click derecho View Page Source`, vemos que hay un comentario y encontramos dos nombres **Juan** y **Camilo** <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/bd53e73b-4b4b-4dd0-9473-4130092be3cf)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/09f686e4-ac3c-48e8-ac0f-c0ca99cd41f0)
 <br>
 <br>
 ## Medusa / Hydra
