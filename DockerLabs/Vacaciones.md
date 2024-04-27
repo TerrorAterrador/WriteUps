@@ -60,7 +60,7 @@ Si ejecutamos `sudo -l` podemos ver que no podemos correr nada como sudo.<br>
 <br>
 <br>
 Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de permisos SUID no encontramos nada potencial para escalar privilegios. <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/5c7f9741-947c-4ef3-ae77-1e4bd20360c9)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/158e8c0f-fff5-4424-9631-192a524dc6d8)
 <br>
 `/` ⮞ buscamos desde la raíz
 `-perm -4000` ⮞ mostrar los permisos SUID <br>
