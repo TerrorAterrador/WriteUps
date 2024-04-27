@@ -74,19 +74,19 @@ En cambio si probamos a filtrar por **mail** `find / -name "mail" 2>/dev/null` n
 <br>
 <br>
 Por lo que nos dirigimos a esa ruta **/var/mail** vemos que dentro de la carpeta camilo hay un archivo llamado **correo.txt** y si hacemos `cat correo.txt` vemos lo siguiente: <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/fa0424d5-95a0-49bc-b68a-36359364d7b9)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/9ffb2084-c614-4dec-a3b4-1d8329e77eda)
 <br>
 <br>
 Por lo que vamos a a probar camibar al usuario **juan** que era el que había enviado el correo, si hacemos `su juan` para cambiar de usuario y ponemos la contraseña, vemos que hemos cambiado al usuario juan.<br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/3152c784-7761-4885-ab5d-947cf823b1aa)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/d383ae4f-ed07-4238-b0af-422cebf954e6)
 <br>
 <br>
 Ahora que estamos como juan vamos a listar los permisos que podemos ejecutar como **sudo** con `sudo -l`, y vemos que podemos ejecutar **/usr/bin/ruby**. <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/6ffb810b-3612-4bbb-bd5c-eca73f2643db)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/c4ad1313-c23c-470a-818c-704c9d8fe6a7)
 <br>
 <br>
 Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de sudo en ruby, y nos encontramos con el siguiente comando `sudo ruby -e 'exec "/bin/bash"'`, probamos a ejecutarlo en la máquina y listo hemos elevado a root. <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/375ab6da-cf9a-4cec-af6a-47237ba931e8)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/123bb130-d2e7-4207-a449-01dfb0925eac)
 
 
 
