@@ -1,10 +1,10 @@
 # [Vacaciones](https://dockerlabs.es/)
 
-### Despliegue
+## Despliegue
 
 Primero desplegamos la máquina (si no sabes en la página de DockerLabs ahí un pdf que lo explica).
 
-### Reconocimiento
+## Reconocimiento
 
 Una vez desplegada comprobamos que tenemos conectividad con `ping -c 1 172.17.0.2` <br>
 ![ping](ping.jpg) <br>
@@ -24,7 +24,7 @@ Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, obse
 ![nmap](nmap.jpg)<br>
 <br>
 
-### Página Web (Puerto 80)
+## Página Web (Puerto 80)
 
 Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como URL. Podemos ver que la página está completamente en blanco. <br>
 ![navegador](navegador.jpg) <br>
@@ -34,7 +34,7 @@ Pasemos a ver el código fuente `click derecho View Page Source`, vemos que hay 
 ![codigo_fuente](codigo_fuente.jpg) <br>
 <br>
 
-### Medusa / Hydra
+## Medusa / Hydra
 
 
 
