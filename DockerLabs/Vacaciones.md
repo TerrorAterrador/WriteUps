@@ -46,13 +46,14 @@ Ahora conocemos dos usuarios con posibilidades de ser candidatos a pertenecer a 
 <br>
 <br>
 ## SSH (Puerto 22)
-Una vez conocemos el usuario y su contraseña probramos a entrar a la máquina Vacaciones con `ssh camilo@172.17.0.2`, y a continuación nos pedirá la contraseña. *Si te aparece un error como este [aquí](https://desarrolloweb.com/faq/solucionar-remote-host-identification-has-changed-al-hacer-ssh) puedes encontrar la solción.* ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/a9aa6ab0-8f37-4306-baa4-928cfac2bc3f) 
+Una vez conocemos el usuario y su contraseña probramos a entrar a la máquina Vacaciones con `ssh camilo@172.17.0.2`, y a continuación nos pedirá la contraseña. *Si te aparece un error como este [aquí](https://desarrolloweb.com/faq/solucionar-remote-host-identification-has-changed-al-hacer-ssh) puedes encontrar la solción.* <br>![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/2128bd5f-33a2-4bb0-ac54-6555c7aa5817)
+
 
 
 ## Escala de Privilegios
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **camilo**, podemos escribir `bash` para poder estar más cómodos operando en la máquina. <br>
 Si ejecutamos `sudo -l` podemos ver que no podemos correr nada como sudo.<br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/32048e1e-4f33-4de4-ad64-8ebb9cc44714)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/25626abb-98fa-4ef1-a6ac-659b3d295498)
  <br>
  <br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
