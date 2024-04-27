@@ -1,5 +1,7 @@
 # [Vacaciones](https://dockerlabs.es/)
 
-Una vez desplegada la máquina [aquí](chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://dockerlabs.es/assets/instrucciones_de_uso.pdf)
+## Despliegue
+
+Primero desplegamos la máquina (si no sabes en la página de DockerLabs ahí un pdf que lo explica).
 
 
