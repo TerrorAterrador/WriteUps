@@ -35,7 +35,21 @@ Pasemos a ver el código fuente `click derecho View Page Source`, vemos que hay 
 <br>
 
 ## Medusa / Hydra
+Ahora conocemos dos usuarios con posibilidades de ser candidatos a pertenecer a la máquina Vacaciones. Gracias a medusa haremos un ataque de fuerza fruta al puerto 22, el cual aloja el servicio SSH. `medusa -h 172.17.0.2 -U users -P /usr/share/wordlists/rockyou.txt -M ssh` <br>
+`-h` ⮞ dirección IP de la máquina victima <br>
+`-U` ⮞ el archivo con los posibles usuarios es decir (camilo,juan) <br> 
+`-P` ⮞ ruta al diccionario [rockyou]([rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) <br> 
+`-M` ⮞ modulo que sería el protocolo ssh <br>
+![medusa](medusa.jpg) <br>
+<br>
 
+## SSH (Puerto 22)
+Una vez conocemos el usuario y su contraseña probramos a entrar a la máquina Vacaciones con `ssh camilo@172.17.0.2`, y a continuación nos pedirá la contraseña. *Si te aparece un error como este ![errorSSH](error.jpg) aquí puedes encontrar la solción.*
+
+
+## Escala de Privilegios
+Comprobamos que hemos podido ingresar a la Máquina Víctima como **camilo**, podemos escribir `bash` para poder estar más cómodos operando en la máquina. <br>
+Si ejecutamos `sudo -l` ![sudo_-l](sudo_-l) podemos ver que no podemos correr nada como sudo, al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de permisos SUID no encontramos nada potencial para escalar privilegios. ![find](find.jpg)
 
 
 
