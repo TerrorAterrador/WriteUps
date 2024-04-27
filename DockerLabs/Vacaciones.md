@@ -7,7 +7,7 @@ Primero desplegamos la máquina con `bash auto_deploy.sh vacaciones.tar` (si no 
 ## Reconocimiento
 
 Una vez desplegada comprobamos que tenemos conectividad con `ping -c 1 172.17.0.2` <br>
-![ping](https://github.com/TerrorAterrador/WriteUps/assets/128630899/900895ba-b5f2-4cfb-8480-015c44c7682e)
+![ping](https://github.com/TerrorAterrador/WriteUps/assets/128630899/16c538ed-6f77-42e8-bf9d-5d3821c7392b)
 <br>
 <br>
 `-c 1` ⮞ solo lo repite una vez<br>
