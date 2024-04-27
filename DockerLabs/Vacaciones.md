@@ -1,4 +1,4 @@
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/f3969498-e160-4f38-9602-b9833f29767a)# [Vacaciones](https://dockerlabs.es/)
+# [Vacaciones](https://dockerlabs.es/)
 
 ## Despliegue
 
