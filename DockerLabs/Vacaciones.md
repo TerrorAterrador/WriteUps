@@ -6,7 +6,7 @@ Primero desplegamos la máquina con `bash auto_deploy.sh vacaciones.tar` (si no 
 
 ## Reconocimiento
 
-Una vez desplegada comprobamos que tenemos conectividad con `ping -c 1 172.17.0.2` <br>
+Una vez desplegada comprobamos que tenemos conectividad con `ping -c 1 172.17.0.2` 
 ![ping](https://github.com/TerrorAterrador/WriteUps/assets/128630899/c84ab9ce-1758-4a9c-8679-a7ee2a43c3be)
 <br>
 `-c 1` ⮞ solo lo repite una vez<br>
@@ -21,7 +21,7 @@ Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -
 `-Pn` ⮞ ignora si esta activa o no la IP<br> 
 `-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk) <br>
 <br>
-Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**<br>
+Podemos ver los reultados en el archivos grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**
 ![nmap](https://github.com/TerrorAterrador/WriteUps/assets/128630899/ef28633b-ba49-4df1-8d2d-4efc516c8471)
 <br>
 <br>
