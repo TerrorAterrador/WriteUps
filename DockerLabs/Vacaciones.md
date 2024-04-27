@@ -42,7 +42,7 @@ Ahora conocemos dos usuarios con posibilidades de ser candidatos a pertenecer a 
 `-U` ⮞ el archivo con los posibles usuarios es decir (camilo,juan) <br> 
 `-P` ⮞ ruta al diccionario [rockyou]([rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) <br> 
 `-M` ⮞ modulo que sería el protocolo ssh <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/73fd6faf-84d7-4d07-9eb4-2188d580584a)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/8bab8b01-dcea-46b8-83da-b4cf6a5b7fe1)
 <br>
 <br>
 ## SSH (Puerto 22)
