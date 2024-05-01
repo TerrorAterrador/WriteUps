@@ -40,7 +40,7 @@ Pasemos a ver el código fuente `click derecho View Page Source`, vemos que hay 
 Ahora conocemos dos usuarios con posibilidades de ser candidatos a pertenecer a la máquina Vacaciones. Gracias a medusa haremos un ataque de fuerza fruta al puerto 22, el cual aloja el servicio SSH. `medusa -h 172.17.0.2 -U users -P /usr/share/wordlists/rockyou.txt -M ssh` <br>
 `-h` ⮞ dirección IP de la máquina victima <br>
 `-U` ⮞ el archivo con los posibles usuarios es decir (camilo,juan) <br> 
-`-P` ⮞ ruta al diccionario [rockyou]([rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) <br> 
+`-P` ⮞ ruta al diccionario [rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) <br> 
 `-M` ⮞ modulo que sería el protocolo ssh <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/7d422130-cb8b-4198-9382-20eff59cf174)
 <br>
