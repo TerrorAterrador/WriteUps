@@ -40,7 +40,7 @@ Pasemos a ver el código fuente `click derecho View Page Source`, vemos que hay 
 Ahora conocemos dos usuarios con posibilidades de ser candidatos a pertenecer a la máquina Vacaciones. Gracias a medusa haremos un ataque de fuerza fruta al puerto 22, el cual aloja el servicio SSH. `medusa -h 172.17.0.2 -U users -P /usr/share/wordlists/rockyou.txt -M ssh` <br>
 `-h` ⮞ dirección IP de la máquina victima <br>
 `-U` ⮞ el archivo con los posibles usuarios es decir (camilo,juan) <br> 
-`-P` ⮞ ruta al diccionario [rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) <br> 
+`-P` ⮞ ruta para descargar el diccionario [rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) <br> 
 `-M` ⮞ modulo que sería el protocolo ssh <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/7d422130-cb8b-4198-9382-20eff59cf174)
 <br>
@@ -60,7 +60,7 @@ Si ejecutamos `sudo -l` podemos ver que no podemos correr nada como sudo.<br>
 Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de permisos SUID no encontramos nada potencial para escalar privilegios. <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/158e8c0f-fff5-4424-9631-192a524dc6d8)
 <br>
-`/` ⮞ buscamos desde la raíz
+`/` ⮞ buscamos desde la raíz <br>
 `-perm -4000` ⮞ mostrar los permisos SUID <br>
 `2>/dev/null` ⮞ para que no nos muestre los errores <br>
 <br>
