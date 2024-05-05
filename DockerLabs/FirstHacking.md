@@ -10,7 +10,7 @@ Primero desplegamos la máquina con ```bash auto_deploy.sh firsthacking.tar``` (
 Una vez desplegada comprobamos que tenemos conectividad con ```ping -c 1 172.17.0.2``` 
 <br>
 
-![ping](image.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/af4d0189-b640-4576-aca6-3c02c75c9434)
 <br>
 `-c 1` ⮞ solo lo repite una vez<br>
 <br>
@@ -29,7 +29,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 Podemos ver los reultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **21**
 <br>
 
-![nmap](image-1.png) 
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/c42712ae-3adb-4232-98c4-a787f7784cd4)
 <br>
 <br>
 
@@ -41,7 +41,7 @@ Al ver que solo tenemos un puerto abierto vamos ha hacer un escaneo de nmap pero
 `-oN` ⮞ lo exporta en formato nmap al archivo targeted 
 <br>
 
-![targeted](image-2.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/efd74f95-4541-45e2-9857-c6b81c6c6d86)
 <br>
 <br>
 
@@ -50,4 +50,4 @@ Al ver que solo tenemos un puerto abierto vamos ha hacer un escaneo de nmap pero
 Una vez ya conozcamos la versión del ftp podemos buscar por ella en Internet en búsquedad de algún exploit de esta forma `ftp vsftpd 2.3.4 exploit github`. <br> Nos encontramos con este repositorio de [github](https://github.com/Hellsender01/vsftpd_2.3.4_Exploit). Si seguimos las instrucciones del repositorio instalando los requirimientos con `sudo python3 -m pip install pwntools`. <br> Nos descargamos el repositorio con `git clone https://github.com/Hellsender01/vsftpd_2.3.4_Exploit.git`. Una vez esté descargado probamos ha hacer lo que nos dice que sería `python3 exploit.py 172.17.0.2`. Y listo ya seríamos root.
 <br>
 
-![alt text](image-3.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/345f784d-7c90-4ac1-948a-b27703598104)
