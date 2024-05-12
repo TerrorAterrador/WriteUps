@@ -29,10 +29,8 @@ Podemos ver los reultados en el archivo grepeable haciendo ```cat allPorts```, o
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/a1c0f66b-e114-4d9c-8b06-44d197ff9d93)
-
 <br>
 <br>
-
 ## Página Web (Puerto 8080)
 
 Al ver que está abierto el puerto 8080 nos dirigimos al Navegador Web e introducimos la dirección IP como URL de la siguiente forma : `172.17.0.2:8080` ya que es el puerto 8080 el que aloja este servidor Web. Podemos ver un panel de login para Jenkins: 
