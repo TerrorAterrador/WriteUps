@@ -14,7 +14,6 @@ Una vez desplegada comprobamos que tenemos conectividad con ```ping -c 1 172.17.
 <br>
 `-c 1` ⮞ solo lo repite una vez<br>
 <br>
-
 Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS -vvv -n -Pn 172.17.0.2 -oG allPorts``` <br>
 `-p-` ⮞ aplicar reconocimiento a todos los puertos <br>
 `--open` ⮞ solo a los que esten abiertos <br>
