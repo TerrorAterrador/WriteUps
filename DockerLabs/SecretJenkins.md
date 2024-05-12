@@ -39,6 +39,7 @@ Al ver que está abierto el puerto 8080 nos dirigimos al Navegador Web e introdu
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/cedfd01c-7a4d-45a9-a0b0-dd8b66cf42ac)
+
 <br>
 
 Si probamos ha hacer un fuzzing web ya sea con gobuster o wfuzz. De la siguiente forma `gobuster dir -w /home/kali/WordLists/directory-medium -u http://172.17.0.2:8080/ -x txt,sql,py,js,php,html`, observamos que nos detecta muchos de subdirecctorios.  <br>
