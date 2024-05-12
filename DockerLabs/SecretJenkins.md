@@ -3,10 +3,8 @@
 ## Despliegue
 
 Primero desplegamos la máquina con ```bash auto_deploy.sh secretjenkins.tar``` (si no sabes en la página de DockerLabs ahí un pdf que lo explica).
-
 <br>
 <br>
-
 ## Reconocimiento
 
 Una vez desplegada comprobamos que tenemos conectividad con ```ping -c 1 172.17.0.2``` 
