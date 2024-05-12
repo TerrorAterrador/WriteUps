@@ -74,9 +74,7 @@ Una vez conocemos los posibles usuarios los metemos un archivo llamdo `users` ap
 <br>
 <br>
 
-Nos reporta lo siguente:  
-<br>
-
+Nos reporta lo siguente: <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/13bb5fb7-d465-4fbe-8bde-1d49fe9f9bea)
 <br>
 <br>
