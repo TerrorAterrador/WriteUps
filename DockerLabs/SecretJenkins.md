@@ -50,8 +50,6 @@ Si probamos ha hacer un fuzzing web ya sea con gobuster o wfuzz. De la siguiente
 Si probamos con el primero de ellos `index` podemos ver que abajo a la derecha la versión del Jenkins usada: 
 <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/7f7eda42-68f8-44bf-ab5e-eb70c4115cb2)
-
-<br>
 <br>
 
 ## Jenkins 2.441
