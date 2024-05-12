@@ -29,14 +29,14 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 Podemos ver los reultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **8080** y el **22**
 <br>
 
-![alt text](image-1.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/a1c0f66b-e114-4d9c-8b06-44d197ff9d93)
 <br>
 <br>
 
 ## Página Web (Puerto 8080)
 
 Al ver que está abierto el puerto 8080 nos dirigimos al Navegador Web e introducimos la dirección IP como URL de la siguiente forma : `172.17.0.2:8080` ya que es el puerto 8080 el que aloja este servidor Web. Podemos ver un panel de login para Jenkins: <br>
-![alt text](image-2.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/cedfd01c-7a4d-45a9-a0b0-dd8b66cf42ac)
 <br>
 <br>
 
@@ -47,7 +47,7 @@ Si probamos ha hacer un fuzzing web ya sea con gobuster o wfuzz. De la siguiente
 <br>
 
 Si probamos con el primero de ellos `index` podemos ver que abajo a la derecha la versión del Jenkins usada: <br>
-![alt text](image-3.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/7f7eda42-68f8-44bf-ab5e-eb70c4115cb2)
 <br>
 
 ## Jenkins 2.441
@@ -58,7 +58,7 @@ del sistema (LFI)<br>
 Nos descargamos el exploit en python con wget de la siguiente forma
 `wget https://raw.githubusercontent.com/Praison001/CVE-2024-23897-Jenkins-Arbitrary-Read-File-Vulnerability/main/CVE-2024-23897.py` <br>, le asignamos permisos de ejecución con `chmod +x CVE-2024-23897.py`. Su uso es muy sencillo solo hay que poner la url de la página web con Jenkins y el archivo que queremos leer por lo tanto sería tal que así `python3 CVE-2024-23897.py -u http://172.17.0.2:8080/ -f /etc/passwd`. Y observamos el arhcivo de `/etc/passwd` donde podemos leer algunos usuarios como `bobby y pinguinito`.<br>
 
-![alt text](image-4.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/081ea4f9-5afc-45e5-9375-a911c288fb91)
 
 ## Hydra / Medusa
 Una vez conocemos los posibles usuarios los metemos un archivo llamdo `users` aplicamos un ataque de fuerza fruta con hydra con el siguiente comando: `hydra -L users -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2`. <br> 
@@ -68,8 +68,10 @@ Una vez conocemos los posibles usuarios los metemos un archivo llamdo `users` ap
 
 <br>
 
-Nos reporta lo siguente:  <br>
-![alt text](image-5.png) <br>
+Nos reporta lo siguente:  
+<br>
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/13bb5fb7-d465-4fbe-8bde-1d49fe9f9bea)
+
 <br>
 
 ## SSH (Puerto 22)
