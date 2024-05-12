@@ -53,6 +53,7 @@ Si probamos con el primero de ellos `index` podemos ver que abajo a la derecha l
 
 <br>
 <br>
+
 ## Jenkins 2.441
 Ahora que conocemos la versión de Jenkins podemos buscar en Internet en búsquedad de exploits para esta versión en especifico de la siguiente forma: `jenkins 2.44.1 github exploit`. Y nos encontramos con el siguiente repositorio de 
 [github](https://github.com/Praison001/CVE-2024-23897-Jenkins-Arbitrary-Read-File-Vulnerability). En el encontramos un poco de información sobre la vulnerabilidad a explotar, la cual consiste en leer archivos 
