@@ -64,7 +64,8 @@ Como observamos es vulnerable a SSTI por lo que deberíamos hacer ahora es busca
 Al introducir lo anterior comprobamos que nos responde con lo siguiente: 
 <br>
 
-![alt text](image-5.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/bcd2caeb-371c-4878-8b66-09a1c52599d8)
+
 <br>
 
 Por lo que ahora nos mandaríamos una revshell, este parte se puede hacer de muchas formas. Una de ellas sería ponernos en escucha con netcat, escribiendo en nuestra terminal `nc -nlvp 443`, y despues e el payload en vez de poner el comando `id`, nos mandaremos una revshell poniendo lo siguiente: <br>
@@ -76,7 +77,7 @@ Por lo que ahora nos mandaríamos una revshell, este parte se puede hacer de muc
 Es importante escapar las comillas simples ya que si no nos dará error. Una vez mandada la revshell podemos ver que todo ha ido bien: 
 <br>
 
-![alt text](image-6.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/4e8a35d2-6b8c-496f-a88b-d53638c9a03e)
 
 <br>
 <br>
@@ -98,7 +99,8 @@ que podemos ejecutar base64 siendo root sin proporcionar contraseña. <br>
 
 <br>
 
-![alt text](image-7.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/bf198297-b8dd-4df1-947c-bc992e8b1dca)
+
 
 <br>
 
@@ -115,7 +117,8 @@ En primer lugar sacamos el hash de la id_rsa de la siguiente forma `ssh2john id_
 
 <br>
 
-![alt text](image.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/1c2569dd-4f3a-435f-a99e-6ab421bbbb89)
+
 
 <br>
 
@@ -123,4 +126,5 @@ Una vez que conocemos la passphare probamos a auntenticarnos como lo intentamos 
 
 <br>
 
-![alt text](image-1.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/3ff97e38-6c17-4410-a79e-016f9fe3c597)
+
