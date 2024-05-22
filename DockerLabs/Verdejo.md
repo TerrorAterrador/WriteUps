@@ -3,6 +3,8 @@
 ## Despliegue
 
 Primero desplegamos la máquina con ```bash auto_deploy.sh verdejo.tar``` (si no sabes en la página de DockerLabs ahí un pdf que lo explica).
+
+<br>
 <br>
 
 ## Reconocimiento
@@ -28,7 +30,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 Podemos ver los reultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **80**, **22**, **8089**
 <br>
 
-![alt text](image-1.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/30e4a4c2-66ec-4fc4-b850-c5ed66365f4d)
 
 <br>
 <br>
