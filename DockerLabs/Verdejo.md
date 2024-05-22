@@ -89,26 +89,25 @@ Una vez mandada la revshell podemos ver que todo ha ido bien:
 ## Escala de Privilegios
 
 Antes de empezar a probar como escalar privlegios haremos un sencillo tratamiento de la tty poniendo en orden lo suiguiente: <br>
-`script /dev/null -c bash` <br>
-`Pulsamos CTRL+Z` <br>
-`stty raw -echo; fg` <br>
-`reset xterm` <br>
-`export SHELL=bash && export TERM=xterm` <br>
+1-.`script /dev/null -c bash` <br>
+2-.`Pulsamos CTRL+Z` <br>
+3-.`stty raw -echo; fg` <br>
+4-.`reset xterm` <br>
+5-.`export SHELL=bash && export TERM=xterm` <br>
 
 <br>
 
-Una vez hecho el Tratamiento de la tty, podemos comenzar con la escala escribimos `sudo -l` podemos ver
-que podemos ejecutar base64 siendo root sin proporcionar contraseña. <br>
+Una vez hecho el Tratamiento de la tty, podemos comenzar con la escala escribimos `sudo -l` vemos
+que es posible ejecutar base64 como root sin proporcionar contraseña. <br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
 
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/bf198297-b8dd-4df1-947c-bc992e8b1dca)
 
-
 <br>
 
-Entonces mirando en [GTFOBins](https://gtfobins.github.io/) podemos ver que nos permite File Read poniendo lo siguiente -> `sudo base64 "file_to_read" | base64 --decode`. Entonces como recordamos que tiene el puerto 22 abierto es decir el ssh, podemos pobrar a leer la id_rsa del root que sería de la siguiente forma -> `sudo -u root /root/.ssh/id_rsa | base64 --decode`, por lo que visualizariamos la id_rsa del root por lo que nos la copiamos en un archivo en nuestro directorio de trabajo.
+Entonces mirando en [GTFOBins](https://gtfobins.github.io/) podemos ver que nos permite File Read poniendo lo siguiente -> `sudo base64 "file_to_read" | base64 --decode`. Entonces como recordamos que tiene el puerto 22 abierto es decir el ssh, podemos pobrar a leer la id_rsa del root que sería de la siguiente forma -> `sudo -u root /root/.ssh/id_rsa | base64 --decode`, por lo que visualizaríamos la **id_rsa** del root y nos la copiamos en un archivo en nuestro directorio de trabajo.
 
 <br>
 <br>
@@ -118,11 +117,9 @@ Entonces mirando en [GTFOBins](https://gtfobins.github.io/) podemos ver que nos 
 Una vez que tenemos la id_rsa si probamos a intentar logear como root a través del ssh de la siguiente forma -> `ssh -i id_rsa root@172.17.0.2`, nos pedirá una passphare la cual no tenemos por lo que pasaremos a crackear con JhonTheRipper. <br>
 
 En primer lugar sacamos el hash de la id_rsa de la siguiente forma `ssh2john id_rsa > hash`, una vez que tenemos el hash pasamos a crackearlo para intentar sacar la passphare, lo haremos de la siguiente forma -> `john hash --wordlist=/usr/share/wordlist/rockyou.txt` y nos mostraría algo tal que así:
-
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/1c2569dd-4f3a-435f-a99e-6ab421bbbb89)
-
 
 <br>
 
