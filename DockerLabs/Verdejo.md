@@ -28,7 +28,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 Podemos ver los reultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **80**, **22**, **8089**
 <br>
 
-![alt text](image.png)
+![alt text](image-1.png)
 
 <br>
 <br>
