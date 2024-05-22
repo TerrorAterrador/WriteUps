@@ -1,4 +1,4 @@
-![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/4defada3-ca7d-445a-9404-245d4df6a1d6)# [Verdejo](https://dockerlabs.es/)
+# [Verdejo](https://dockerlabs.es/)
 
 ## Despliegue
 
