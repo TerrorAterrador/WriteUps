@@ -1,4 +1,4 @@
-# [Verdejo](https://dockerlabs.es/)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/4defada3-ca7d-445a-9404-245d4df6a1d6)# [Verdejo](https://dockerlabs.es/)
 
 ## Despliegue
 
@@ -29,7 +29,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 Podemos ver los reultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **80**, **22**, **8089**
 <br>
 
-![alt text](image-2.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/0216d68c-23a3-4c54-adec-7ee750f9362b)
 
 <br>
 <br>
@@ -46,14 +46,14 @@ Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introduci
 Al no tener exito en el puerto 80, probamos a intentar acceder al puerto **8089** de la siguiente forma: `172.17.0.2:8090`. Se puede observar un recuadro para poner cosas.  
 <br>
 
-![alt text](image-3.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/3b7a51a4-0d27-438a-9213-e131dbfc6de2)
 
 <br>
 
 Lo primero que se me ocurre es ver si es vulnerable a `SSTI`, una manera de comprobarlo es poniendo lo suiguiente `{{7*7}}`:
 <br>
 
-![alt text](image-4.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/818083c0-b051-47d7-ab90-2a7d84d4273b)
 
 <br>
 
