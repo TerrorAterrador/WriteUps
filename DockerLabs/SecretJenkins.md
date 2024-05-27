@@ -3,8 +3,6 @@
 ## Despliegue
 
 Primero desplegamos la máquina con ```bash auto_deploy.sh secretjenkins.tar``` (si no sabes en la página de DockerLabs ahí un pdf que lo explica).
-<br>
-<br>
 
 ## Reconocimiento
 

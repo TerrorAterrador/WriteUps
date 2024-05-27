@@ -4,9 +4,6 @@
 
 Primero desplegamos la máquina con ```bash auto_deploy.sh verdejo.tar``` (si no sabes en la página de DockerLabs ahí un pdf que lo explica).
 
-<br>
-<br>
-
 ## Reconocimiento
 
 Una vez desplegada comprobamos que tenemos conectividad con ```ping -c 1 172.17.0.2``` 
@@ -123,7 +120,7 @@ En primer lugar sacamos el hash de la id_rsa de la siguiente forma `ssh2john id_
 
 <br>
 
-Una vez que conocemos la passphare probamos a autenticarnos como lo intentamos antes -> `ssh -i id_rsa root@172.17.0.2`, y después introducimos la passphrase y listo ya somos root!.
+Una vez que conocemos la passphare probamos a autenticarnos como lo intentamos antes -> `ssh -i id_rsa root@172.17.0.2`, y después introducimos la passphrase y listo ya somos root!
 
 <br>
 
