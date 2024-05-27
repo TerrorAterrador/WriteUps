@@ -4,10 +4,13 @@
         "builtins",
         "crackear",
         "crackearlo",
+        "Despliegue",
+        "Gobuster",
         "grepeable",
         "GTFO",
         "Jhon",
         "logear",
+        "mario",
         "netcat",
         "nlvp",
         "nmap",
@@ -17,5 +20,6 @@
         "SSTI",
         "stty",
         "wordlist"
-    ]
+    ],
+    "cSpell.language": "en,es-ES"
 }
