@@ -7,12 +7,17 @@ Primero desplegamos la máquina con ```bash auto_deploy.sh domain.tar``` (si no 
 ## Reconocimiento
 
 Una vez desplegada comprobamos que tenemos conectividad con ```ping -c 1 172.17.0.2``` 
+
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/af4d0189-b640-4576-aca6-3c02c75c9434)
+
 <br>
-`-c 1` ⮞ solo lo repite una vez<br>
+
+`-c 1` ⮞ solo lo repite una vez
+
 <br>
+
 Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS -vvv -n -Pn 172.17.0.2 -oG allPorts``` <br>
 `-p-` ⮞ aplicar reconocimiento a todos los puertos <br>
 `--open` ⮞ solo a los que estén abiertos <br>
@@ -22,12 +27,15 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 `-n` ⮞ no aplica la resolución DNS (tarda mucho en el caso de que no pongamos dicho parámetro)<br> 
 `-Pn` ⮞ ignora si esta activa o no la IP<br> 
 `-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk)
+
 <br>
 
 Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **80**, **445** y **139**
+
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/a1c0f66b-e114-4d9c-8b06-44d197ff9d93)
+
 <br>
 <br>
 
