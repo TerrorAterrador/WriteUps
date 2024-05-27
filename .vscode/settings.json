@@ -19,7 +19,8 @@
         "rockyou",
         "SSTI",
         "stty",
-        "wordlist"
+        "wordlist",
+        "wordlists"
     ],
     "cSpell.language": "en,es-ES"
 }
