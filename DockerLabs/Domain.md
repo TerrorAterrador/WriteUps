@@ -146,9 +146,7 @@ Si ejecutamos `sudo -l` observamos que no podemos correr nada como sudo.<br>
 
 <br>
 
-Hacemos la siguiente comprobación para ver la posible escalada ejecutando `find / -perm -4000 2>/dev/null`
-<br>
-
+Hacemos la siguiente comprobación para ver la posible escalada ejecutando `find / -perm -4000 2>/dev/null`<br>
 `/` ⮞ buscamos desde la raíz <br>
 `-perm -4000` ⮞ mostrar los permisos SUID <br>
 `2>/dev/null` ⮞ para que no nos muestre los errores <br>
