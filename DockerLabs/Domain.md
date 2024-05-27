@@ -32,6 +32,7 @@ Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, 
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b7ea8327-2ddf-4d14-a618-e260f3e0f890)
+
 <br>
 <br>
 
