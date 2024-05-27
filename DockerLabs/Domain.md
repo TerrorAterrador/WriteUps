@@ -28,7 +28,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 
 <br>
 
-Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **80**, **445** y **139**
+Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **80**, **445** y **139**.
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b7ea8327-2ddf-4d14-a618-e260f3e0f890)
@@ -69,7 +69,7 @@ Lo haremos de la siguiente forma `enum4linux -a 172.17.0.2`, podemos ver que nos
 Una vez conocemos los posibles usuarios haremos un ataque de fuerza bruta al servicio samba usando hydra en primer lugar, usaremos el usuario bob `hydra -l bob -P /usr/share/wordlists/rockyou.txt smb://172.17.0.2`. <br> 
 `-h` ⮞ dirección IP de la máquina victima <br>
 `-u` ⮞ nombre del posible usuario <br> 
-`-P` ⮞ ruta del rockyou. Para descargar el diccionario [rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt)
+`-P` ⮞ ruta del rockyou. Para descargar el diccionario [rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt).
 
 <br>
 
@@ -78,8 +78,8 @@ Nos reporta el siguiente error:
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/0cc474a4-ec7d-4240-93ee-5c72882793bf)
 
-
 <br>
+
 Por lo que debemos usar otra herramienta de fuerza bruta (medusa tampoco funciona), en este caso usaremos `crackmapexec` usando el siguiente comando `crackmapexec smb 172.17.0.2 -u bob -p /usr/share/wordlists/rockyou.txt`, podemos ver que usando `crackmapexec` no nos sale el error de antes, y nos reporta lo siguiente:
 <br>
 
