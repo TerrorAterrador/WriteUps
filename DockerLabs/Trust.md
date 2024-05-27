@@ -43,14 +43,13 @@ Vamos a listar posibles directorios y/o archivos que estén en este servidor htt
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b5547af2-70d4-44cd-a69a-eac4543b8b4c)
 
 <br>
-<br>
+
 Por lo que vamos a la siguiente dirección `http://172.17.0.2/secret.php`, y nos aparece lo siguiente: 
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/f3779a93-37ea-4aa1-92bc-2bb5c8f7dbee)
 
 <br>
 <br>
-
 
 ## Medusa / Hydra
 Ahora conocemos un posible usuario de nombre `mario` con posibilidades de ser candidato a pertenecer a la máquina Trust. Gracias a hydra haremos un ataque de fuerza fruta al puerto 22, el cual aloja el servicio SSH. `hydra -l mario -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2 ` <br>
