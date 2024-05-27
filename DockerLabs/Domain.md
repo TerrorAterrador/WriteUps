@@ -143,9 +143,9 @@ Vemos que también se encuentra el usuario `bob` probamos a autenticarnos hacien
 
 Si ejecutamos `sudo -l` observamos que no podemos correr nada como sudo.<br>
 
-`-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
-<br>
+`-l` ⮞ listar comandos que podemos ejecutar como sudo(sudoers).
 
+<br>
 
 Hacemos la siguiente comprobación para ver la posible escalada ejecutando `find / -perm -4000 2>/dev/null`
 <br>
