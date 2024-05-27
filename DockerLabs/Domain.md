@@ -27,7 +27,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **80**, **445** y **139**
 <br>
 
-![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/a1c0f66b-e114-4d9c-8b06-44d197ff9d93)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b7ea8327-2ddf-4d14-a618-e260f3e0f890)
 <br>
 <br>
 
