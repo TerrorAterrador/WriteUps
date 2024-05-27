@@ -142,7 +142,6 @@ Vemos que también se encuentra el usuario `bob` probamos a autenticarnos hacien
 <br>
 
 Si ejecutamos `sudo -l` observamos que no podemos correr nada como sudo.<br>
-
 `-l` ⮞ listar comandos que podemos ejecutar como sudo(sudoers).
 
 <br>
