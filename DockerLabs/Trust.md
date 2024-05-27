@@ -32,6 +32,7 @@ Podemos ver los resultados en el archivo grepeable haciendo `cat allPorts`, obse
 
 Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como URL. Podemos ver la página por defecto de Apache2. <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/d09804e2-0341-441d-a492-7ad982bd17dd)
+
 <br>
 <br>
 
