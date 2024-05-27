@@ -97,9 +97,11 @@ Por lo que deberíamos hacer ahora sería enviarnos una revshell a nuestra máqu
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/84df3bd1-4baf-481d-90bc-705d989992ea)
+
 <br>
 
 Ahora lo podremos dentro de la carpeta compartida (`html`) a través de samba dentro de la máquina Domain. Debemos logearnos a samba como lo hicimos anteriormente (`smbclient`) en la carpeta donde tenemos nuestro `cmd.php`, una vez dentro del samba hacemos `put cmd.php`, y listo ya estaría el archivo subido al servidor web.
+
 <br>
 
 Accederemos a el poniendo `http://172.17.0.2/cmd.php`, y ahora abusaremos de la vulnerabilidad (RCE), podemos ver que si le pasamos el parámetro `id` de la siguiente manera `http://172.17.0.2/cmd.php?cmd=id` nos da esta respuesta:
