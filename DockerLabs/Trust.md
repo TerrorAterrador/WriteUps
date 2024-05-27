@@ -70,8 +70,10 @@ Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Tr
 
 ## Escala de Privilegios
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **mario** si hacemos `whoami`.
+
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/ffc371ba-61fc-44be-8cbc-8c86fda4cd94)
-<br>
+
 <br>
 
 Si ejecutamos `sudo -l` podemos ver que no podemos correr `/usr/bin/vim` como sudo.<br>
@@ -80,13 +82,12 @@ Si ejecutamos `sudo -l` podemos ver que no podemos correr `/usr/bin/vim` como su
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/7d1820f4-87cf-4a00-8a56-25cf023dcaf8)
 
 <br>
-<br>
 
 Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de sudo en vim, y nos encontramos con lo siguiente `sudo vim -c ':!/bin/sh'`, que lo que haría sería ejecutar vim y después escaparte de este editor con la `!` y escribiendo ``/bin/sh`.
 
 A continuación probaremos a ejecutar dicho comando en primer lugar ponemos -> `sudo vim`, una vez dentro del editor de vim escribimos `:!/bin/bash`
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/27a39d36-6c20-4eb1-a7cf-9181023cc1ee)
-<br>
 <br>
 
 Y listo ya seríamos root!!
