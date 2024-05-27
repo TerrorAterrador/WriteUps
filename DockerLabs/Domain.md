@@ -37,7 +37,7 @@ Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introduci
 
 <br>
 
-![alt text](image.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/4bd0efb7-0737-426b-b58e-2f4ca64e2bcd)
 
 <br>
 <br>
@@ -47,7 +47,7 @@ En primer lugar, listaremos los recursos compartidos con smbmap de la siguiente 
 
 <br>
 
-![alt text](image-4.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/5921f1a9-2a11-4c28-8322-b17bcf3d9d6b)
 
 <br>
 
@@ -58,7 +58,7 @@ Lo haremos de la siguiente forma `enum4linux -a 172.17.0.2`, podemos ver que nos
 
 <br>
 
-![alt text](image-1.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/adc5015f-f5f6-40ce-9230-f998216f7ca2)
 
 <br>
 <br>
@@ -75,7 +75,7 @@ Nos reporta el siguiente error:
 
 <br>
 
-![alt text](image-2.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/0cc474a4-ec7d-4240-93ee-5c72882793bf)
 
 <br>
 
@@ -83,7 +83,7 @@ Por lo que debemos usar otra herramienta de fuerza bruta (medusa tampoco funcion
 
 <br>
 
-![alt text](image-3.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/ace3db99-9351-4693-838a-fce977aaa785)
 
 <br>
 <br>
@@ -98,7 +98,7 @@ Por lo que deberíamos hacer ahora sería enviarnos una revshell a nuestra máqu
 
 <br>
 
-![alt text](image-5.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/84df3bd1-4baf-481d-90bc-705d989992ea)
 
 <br>
 
@@ -110,7 +110,7 @@ Accederemos a el poniendo `http://172.17.0.2/cmd.php`, y ahora abusaremos de la 
 
 <br>
 
-![alt text](image-6.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/d886d5da-bb94-49c3-a0f6-7ab2ca43acb5)
 
 <br>
 
@@ -118,7 +118,7 @@ Por lo que ahora nos mandaríamos una revshell poniendo lo siguiente en el busca
 
 <br>
 
-![alt text](image-7.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/10637016-dd1d-47d7-98ec-f9e63913b1f5)
 
 <br>
 <br>
@@ -135,7 +135,7 @@ Comprobamos que hemos podido ingresar a la Máquina Víctima como **www-data**, 
 
 <br>
 
-![alt text](image-8.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/fbe027ae-cf12-4d98-93a3-536a8fa9d99f)
 
 <br>
 
@@ -143,7 +143,7 @@ Vemos que también se encuentra el usuario `bob` probamos a autenticarnos hacien
 
 <br>
 
-![alt text](image-9.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/6a08e8b6-4e82-4642-a31a-32af6d3ed12a)
 
 <br>
 
@@ -167,7 +167,7 @@ Y vemos que tenemos permiso SUID sobre `/usr/bin/nano`:
 
 <b>
 
-![alt text](image-10.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/38e5b90e-429f-48ac-a241-ac0fbf0c0be0)
 
 <br>
 
@@ -175,7 +175,7 @@ Por lo que podríamos hacer con nano es modificar cualquier fichero ya que conta
 
 <br>
 
-![alt text](image-13.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/30eb18a1-0fb6-4081-8655-85ad45a8b88a)
 
 <br>
 
@@ -183,4 +183,4 @@ Y si hacemos `su root` comprobamos que no nos pedirá contraseña y listo ya ser
 
 <br>
 
-![alt text](image-14.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/dd122cf1-b071-4d1b-aef9-62afeb9176fe)
