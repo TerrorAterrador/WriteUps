@@ -7,7 +7,7 @@ Primero desplegamos la máquina con `bash auto_deploy.sh trust.tar` (si no sabes
 ## Reconocimiento
 
 Una vez desplegada comprobamos que tenemos conectividad con `ping -c 1 172.17.0.2` 
-![ping](https://github.com/TerrorAterrador/WriteUps/assets/128630899/c84ab9ce-1758-4a9c-8679-a7ee2a43c3be)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/dcfa4972-3c0f-4869-a4e9-c3f61e9f0a32)
 <br>
 `-c 1` ⮞ solo lo repite una vez<br>
 
@@ -31,7 +31,7 @@ Podemos ver los resultados en el archivo grepeable haciendo `cat allPorts`, obse
 ## Página Web (Puerto 80)
 
 Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como URL. Podemos ver la página por defecto de Apache2. <br>
-![alt text](image.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/d09804e2-0341-441d-a492-7ad982bd17dd)
 <br>
 <br>
 
@@ -39,13 +39,13 @@ Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introduci
 
 Vamos a listar posibles directorios y/o archivos que estén en este servidor http podemos ver que nos reporta lo siguiente: 
 
-![alt text](image-1.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b5547af2-70d4-44cd-a69a-eac4543b8b4c)
 
 <br>
 <br>
 Por lo que vamos a la siguiente dirección `http://172.17.0.2/secret.php`, y nos aparece lo siguiente: 
 
-![alt text](image-2.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/f3779a93-37ea-4aa1-92bc-2bb5c8f7dbee)
 
 <br>
 <br>
@@ -57,7 +57,7 @@ Ahora conocemos un posible usuario de nombre `mario` con posibilidades de ser ca
 `-P` ⮞ ruta para descargar el diccionario [rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) <br> 
 `ssh://172.17.0.2` ⮞ especificamos el servicio (ssh) y la ruta de la máquina <br>
 
-![alt text](image-3.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/2d1f865d-bc27-4c15-af13-7dd6b6253d7c)
 
 <br>
 <br>
@@ -70,14 +70,14 @@ Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Tr
 
 ## Escala de Privilegios
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **mario** si hacemos `whoami`.
-![alt text](image-4.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/ffc371ba-61fc-44be-8cbc-8c86fda4cd94)
 <br>
 <br>
 
 Si ejecutamos `sudo -l` podemos ver que no podemos correr `/usr/bin/vim` como sudo.<br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo
 
-![alt text](image-5.png) 
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/7d1820f4-87cf-4a00-8a56-25cf023dcaf8)
 
 <br>
 <br>
@@ -85,7 +85,7 @@ Si ejecutamos `sudo -l` podemos ver que no podemos correr `/usr/bin/vim` como su
 Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de sudo en vim, y nos encontramos con lo siguiente `sudo vim -c ':!/bin/sh'`, que lo que haría sería ejecutar vim y después escaparte de este editor con la `!` y escribiendo ``/bin/sh`.
 
 A continuación probaremos a ejecutar dicho comando en primer lugar ponemos -> `sudo vim`, una vez dentro del editor de vim escribimos `:!/bin/bash`
-![alt text](image-6.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/27a39d36-6c20-4eb1-a7cf-9181023cc1ee)
 <br>
 <br>
 
