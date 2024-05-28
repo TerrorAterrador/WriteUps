@@ -71,11 +71,10 @@ Nos reporta lo siguiente:
 
 <br>
 
-Ahora volvemos al panel de login que estaría en la siguiente ruta: `http://172.17.0.2/wordpress/wp-admin/`, nos logeamos con las credenciales obtenidas `(mario:love)`. Buscando por el panel de admin una posible forma de acceder a la máquina WalkingCMS observamos que si pinchamos en la parte de `Apariencia > Theme Code Editor` se nos abrirá un edit de código para los temas.
+Ahora volvemos al panel de login que estaría en la siguiente ruta: `http://172.17.0.2/wordpress/wp-admin/`, nos logeamos con las credenciales obtenidas `(mario:love)`. Buscando por el panel de admin una posible forma de acceder a la máquina WalkingCMS observamos que si pinchamos en la parte de `Apariencia > Theme Code Editor` se nos abrirá un editor de código para los temas.
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b0ef60eb-201e-43e4-812e-f7aaaeccc9b8)
-
 <br>
 
 Pinchando en el botón de `Create` de la derecha nos aparecerá el siguiente pop-up para crear u archivo/carpeta, creamos un archivo llamado `cmd.php`.
