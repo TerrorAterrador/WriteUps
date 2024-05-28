@@ -45,10 +45,12 @@ Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introduci
 
 <br>
 
-Nos reporta que existe un directorio dentro de la web llamado wordpress, por lo que entendemos que dicho servidor web está alojado en wordpress.
+Nos reporta que existe un directorio dentro de la web llamado `/wordpress`, por lo que entendemos que dicho servidor web está alojado en wordpress.
 <br>
 
-Una vez que sabemos que tiene un wordpress, pasaremos a usar la herramienta wp-scan la cual nos permite identificar posible vulnerabilidades a través de plugins, enumeración de usuarios y hacer un ataque de fuerza bruta al panel de login. Para usar dicha herramienta pondremos los siguiente: `wpscan --url http://172.17.0.2/wordpress --enumerate u, pv`, con la cual obtendremos que existe un usuario llamado `mario`:
+Una vez que sabemos que tiene un wordpress, pasaremos a usar la herramienta `wp-scan` la cual nos permite identificar posible vulnerabilidades a través de plugins, enumeración de usuarios y hacer un ataque de fuerza bruta al panel de login. Para usar dicha herramienta pondremos los siguiente: `wpscan --url http://172.17.0.2/wordpress --enumerate u, pv`, con la cual obtendremos que existe un usuario llamado `mario`:<br> 
+`-url` ⮞ dirección IP de la máquina victima <br>
+`--enumerate u, pv` ⮞ le indicamos que nos enumere posible usuarios con la `u` y plugins con la `pv`. <br> 
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/96d9d3cc-7e1f-4621-b9f9-cd0ec4350bfe)
@@ -56,7 +58,7 @@ Una vez que sabemos que tiene un wordpress, pasaremos a usar la herramienta wp-s
 <br>
 <br>
 
-## Hydra / Medusa
+## Fuerza Bruta
 Una vez conocemos el posible usuario haremos un ataque de fuerza bruta al panel de login que sería `/wp-admin`. Dicho ataque de fuerza bruta se podría hacer con burpsuite pero en este caso yo usaré wpscan ya que va más rápido, por lo que pondremos lo siguiente: `wpscan --url http://172.17.0.2/wordpress --passwords /usr/share/wordlists/rockyou.txt --usernames mario`. <br> 
 `-url` ⮞ dirección IP de la máquina victima <br>
 `-passwords` ⮞ especificamos la ruta del diccionario en este caso sería el [rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt). <br> 
