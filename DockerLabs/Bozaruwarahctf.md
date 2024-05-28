@@ -102,6 +102,7 @@ Ejecutamos el comando `sudo -l`. <br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/7812848c-90a9-4f25-91d1-644738d66a9b)
+
 <br>
 
 Observamos que podemos correr `/bin/bash`, por que hacemos `sudo -u root /bin/bash` que nos permitirá ejecutar la bash como root sin proporcionar contraseña, y listo ya somos root!
