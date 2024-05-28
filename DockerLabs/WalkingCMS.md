@@ -129,7 +129,7 @@ Comprobamos que hemos podido ingresar a la Máquina Víctima como **www-data**, 
 
 <br>
 
-Vemos que tan solo se encuentra el usuario `root`, por lo que entendemos que vamos a escalar privilegios directamente.
+Vemos que tan solo se encuentra accesible el usuario `root`, por lo que entendemos que vamos a escalar privilegios directamente.
 <br>
 
 Si ejecutamos `sudo -l` observamos que no podemos correr nada como sudo, de hecho no esta ni instalado.<br>
@@ -140,7 +140,7 @@ Si ejecutamos `sudo -l` observamos que no podemos correr nada como sudo, de hech
 
 <br>
 
-Hacemos la siguiente comprobación para ver la posible escalada ejecutando `find / -perm -4000 2>/dev/null`<br>
+Buscaremos por permisos SUID ejecutando el siguiente comando `find / -perm -4000 2>/dev/null`<br>
 `/` ⮞ buscamos desde la raíz <br>
 `-perm -4000` ⮞ mostrar los permisos SUID <br>
 `2>/dev/null` ⮞ para que no nos muestre los errores <br>
@@ -164,7 +164,7 @@ Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https:/
 Por lo que probaremos a ejecutarlo en la máquina víctima poniendo `/usr/bin/env /bin/bash -p`
 <br>
 
-Comprobamos que nos ha cambiado el terminal, y listo si ya somos `root` y si hacemos `whoami` para comprobarlo.
+Comprobamos que nos ha cambiado el terminal, y listo si ya somos `root` y hacemos `whoami` para comprobarlo.
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/ec54c601-2dd3-4c56-a7a1-b9f481dec655)
