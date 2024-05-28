@@ -75,10 +75,10 @@ Ahora volvemos al panel de login que estaría en la siguiente ruta: `http://172.
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b0ef60eb-201e-43e4-812e-f7aaaeccc9b8)
+
 <br>
 
 Pinchando en el botón de `Create` de la derecha nos aparecerá el siguiente pop-up para crear u archivo/carpeta, creamos un archivo llamado `cmd.php`.
-
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/684232e5-7e9b-4bae-b38f-48f1640beef6)
