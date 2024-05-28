@@ -64,7 +64,6 @@ Lo cual nos da una pista. Atendiendo a intentamos buscar más información dentr
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/0eea7991-2c3b-4973-be3c-71e09f30da6f)
-
 <br>
 
 Observamos el nombre de un usuario llamado `borazuwarah`.
