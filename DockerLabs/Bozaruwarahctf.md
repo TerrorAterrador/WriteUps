@@ -98,7 +98,7 @@ Por lo tanto ya conocemos un usuario y una contraseña por lo cual probamos a au
 
 ## Escala de Privilegios
 
-Ejecutamos el comando `sudo -l`.
+Ejecutamos el comando `sudo -l`. <br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/7812848c-90a9-4f25-91d1-644738d66a9b)
