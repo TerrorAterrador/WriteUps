@@ -51,7 +51,6 @@ Nos reporta que existe un directorio dentro de la web llamado `/wordpress`, por 
 Una vez que sabemos que tiene un wordpress, pasaremos a usar la herramienta `wp-scan` la cual nos permite identificar posible vulnerabilidades a través de plugins, enumeración de usuarios y hacer un ataque de fuerza bruta al panel de login. Para usar dicha herramienta pondremos los siguiente: `wpscan --url http://172.17.0.2/wordpress --enumerate u, pv`, con la cual obtendremos que existe un usuario llamado `mario`:<br> 
 `-url` ⮞ dirección IP de la máquina victima <br>
 `--enumerate u, pv` ⮞ le indicamos que nos enumere posible usuarios con la `u` y plugins con la `pv`. <br> 
-<br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/96d9d3cc-7e1f-4621-b9f9-cd0ec4350bfe)
 
