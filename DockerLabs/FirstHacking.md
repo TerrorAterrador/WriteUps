@@ -26,7 +26,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 `-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk)
 <br>
 
-Podemos ver los reultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **21**
+Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **21**
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/c42712ae-3adb-4232-98c4-a787f7784cd4)
