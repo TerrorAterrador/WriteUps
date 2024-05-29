@@ -1,4 +1,4 @@
-# [CapyPenguin](https://dockerlabs.es/)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/fc983c76-0623-4517-9ec7-81c71e928f58)# [CapyPenguin](https://dockerlabs.es/)
 
 ## Despliegue
 
@@ -69,7 +69,7 @@ Pero antes de empezar a hacer fuerza bruta, debemos seguir la pista que nos dej√
 Una vez hecha la fuerza bruta al mysql, nos encontrar√° las siguientes credenciales para el usuario **capypenguin**:
 <br>
 
-![alt text](image.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/b5b900b8-7b22-4f37-83e0-ade8cb83396d)
 
 <br>
 <br>
