@@ -41,7 +41,7 @@ Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introduci
 
 <br>
 
-Lo que debemos hacer ahora es ver si podemos el directorio donde se estarían subiendo los archivos. Para ello haremos un fuzzing gracias a gobuster con el siguiente comando: `gobuster dir -w /home/kali/WordLists/directory-medium -u http://172.17.0.2 -x txt,sql,py,js,php,html` y nos reportará lo siguiente:
+Lo que debemos hacer ahora es ver si existe el directorio donde se estarían subiendo los archivos. Para ello haremos un fuzzing gracias a gobuster con el siguiente comando: `gobuster dir -w /home/kali/WordLists/directory-medium -u http://172.17.0.2 -x txt,sql,py,js,php,html` y nos reportará lo siguiente:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/bef54253-3e1a-4c14-8ad5-78ed616d8169)
