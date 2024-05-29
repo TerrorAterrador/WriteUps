@@ -87,7 +87,7 @@ Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Va
 
 ## Escala de Privilegios
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **bobby** <br>
-Si ejecutamos `sudo -l` podemos ver que podemos ejecutar sin proporcionar contraseña con el usuario **pinguinito**.<br>
+Si ejecutamos `sudo -l` podemos ver que podemos ejecutar `/usr/bin/python3` sin proporcionar contraseña con el usuario **pinguinito**.<br>
 
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
 

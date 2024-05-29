@@ -38,7 +38,7 @@ Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, 
 
 ## Página Web (Puerto 80)
 
-Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como. podemos ver una página por defecto de Apache2, por lo que haremos un fuzzing para encontrar posible directorios de la siguiente forma: `gobuster dir -w /home/kali/WordLists/directory-medium -u http://172.17.0.2/wordpress -x txt,sql,py,js,php,html`
+Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como. podemos ver una página por defecto de Apache2, por lo que haremos un fuzzing para encontrar posible directorios de la siguiente forma: `gobuster dir -w /home/kali/WordLists/directory-medium -u http://172.17.0.2/ -x txt,sql,py,js,php,html`
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/8c202d25-653f-4177-a6fe-2344be418e8f)
