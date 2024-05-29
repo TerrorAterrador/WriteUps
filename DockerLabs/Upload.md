@@ -6,9 +6,7 @@ Primero desplegamos la máquina con `bash auto_deploy.sh upload.tar` (si no sabe
 
 ## Reconocimiento
 
-Una vez desplegada comprobamos que tenemos conectividad con `ping -c 1 172.17.0.2`
-<br>
-
+Una vez desplegada comprobamos que tenemos conectividad con `ping -c 1 172.17.0.2`<br>
 `-c 1` ⮞ solo lo repite una vez
 <br>
 
@@ -29,7 +27,7 @@ Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -
 Podemos ver los resultados en el archivo grepeable haciendo `cat allPorts`, observamos tan solo está abierto el puerto **80**.
 <br>
 
-![alt text](image.png)`
+![alt text](image.png)
 
 <br>
 <br>
