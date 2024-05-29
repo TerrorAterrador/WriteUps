@@ -28,7 +28,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 
 <br>
 
-Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **80**, **445** y **139**.
+Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que están abiertos los puertos **80**, **445** y **139**.
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b7ea8327-2ddf-4d14-a618-e260f3e0f890)
@@ -38,7 +38,7 @@ Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, 
 
 ## Página Web (Puerto 80)
 
-Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como. podemos ver una página la cuál explica ¿Qué es samba?: 
+Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP podemos ver una página la cuál explica ¿Qué es samba?: 
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/4bd0efb7-0737-426b-b58e-2f4ca64e2bcd)
