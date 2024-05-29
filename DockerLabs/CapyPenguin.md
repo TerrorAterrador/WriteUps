@@ -42,7 +42,6 @@ Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introduci
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/06bf7933-f450-4c49-91ef-bb7e26261fed)
-
 <br>
 
 Y nos está dando alguna pista respecto al rockyou cuando vayamos a aplicar fuerza bruta, además nos indica un posible usuario que sería **capybarauser**
