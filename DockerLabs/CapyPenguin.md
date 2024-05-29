@@ -59,7 +59,7 @@ Pero antes de empezar a hacer fuerza bruta, debemos seguir la pista que nos dej�
 `-I` ⮞ para que sobrescriba el archivo hydra.restore en el caso de que hayamos cancelado un proceso de fuerza bruta antes <br> 
 <br>
 
-Una vez hecha la fuerza bruta al mysql, nos encontrará las siguientes credenciales para el usuario **capypenguin**:
+Una vez hecha la fuerza bruta al mysql, nos encontrará las siguientes credenciales para el usuario **capypenguin**.:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/b5b900b8-7b22-4f37-83e0-ade8cb83396d)
