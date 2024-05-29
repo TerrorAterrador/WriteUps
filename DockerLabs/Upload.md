@@ -106,7 +106,6 @@ Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https:/
 A continuación probaremos a ejecutar dicho comando adaptándolo que sería `sudo -u root /usr/bin/env /bin/bash`.
 <br>
 
-
 ![alt text](image-10.png)
 <br>
 
