@@ -59,7 +59,7 @@ Pero antes de empezar a hacer fuerza bruta, debemos seguir la pista que nos dej�
 `-I` ⮞ para que sobrescriba el archivo hydra.restore en el caso de que hayamos cancelado un proceso de fuerza bruta antes <br> 
 <br>
 
-> Si te da un error como el de abajo, entra [**aquí**](https://github.com/TerrorAterrador/WriteUps/blob/main/DockerLabs/Bozaruwarahctf.md)** para solucionarlo__:
+> Si te da un error como el de abajo, entra [aquí](https://github.com/TerrorAterrador/WriteUps/blob/main/DockerLabs/Bozaruwarahctf.md)** para solucionarlo__:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/02361559-3503-4606-8d04-602919c4aac0)
