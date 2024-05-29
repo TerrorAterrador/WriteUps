@@ -69,7 +69,7 @@ Pero antes de empezar a hacer fuerza bruta, debemos seguir la pista que nos dej√
 Una vez hecha la fuerza bruta al mysql, nos encontrar√° las siguientes credenciales para el usuario **capypenguin**:
 <br>
 
-(imagen)
+![alt text](image.png)
 
 <br>
 <br>
