@@ -1,4 +1,4 @@
-![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/fc983c76-0623-4517-9ec7-81c71e928f58)# [CapyPenguin](https://dockerlabs.es/)
+# [CapyPenguin](https://dockerlabs.es/)
 
 ## Despliegue
 
