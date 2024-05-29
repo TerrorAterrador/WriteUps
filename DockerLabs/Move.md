@@ -43,6 +43,7 @@ Al ver que está abierto el puerto FTP vamos ha hacer un escaneo de nmap pero pa
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/e1248b50-5e65-480d-9efa-9789b23da3aa)
+
 <br>
 <br>
 
@@ -54,14 +55,14 @@ Una vez ya conozcamos que la versión del ftp es vulnerable al login como `anony
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/1a96c199-77fe-44ec-9b1a-e7d6bf9fc652)
 <br>
 
-Nos lo guardamos en nuestra máquina con `get database.kdbx` ya que seguramente nos será necesario para más adelante
+Nos lo guardamos en nuestra máquina con `get database.kdbx` por si nos hiciera falta más adelante.
 
 <br>
 <br>
 
 ## Página Web (Puerto 80)
 
-Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP como. podemos ver una página por defecto de Apache2, por lo que haremos un fuzzing para encontrar posible directorios de la siguiente forma: `gobuster dir -w /home/kali/WordLists/directory-medium -u http://172.17.0.2/ -x txt,sql,py,js,php,html`
+Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP, podemos ver la página por defecto de Apache2, por lo que haremos un fuzzing para encontrar posible directorios de la siguiente forma: `gobuster dir -w /home/kali/WordLists/directory-medium -u http://172.17.0.2/ -x txt,sql,py,js,php,html`
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/7b69cbf7-c7fc-400a-a7ad-4597a47d6cef)
@@ -72,7 +73,6 @@ Nos reporta que existe un una página html llamada `maintenance.html`, nos dirig
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/f6891e46-a3ae-4a2c-9381-cdfb74e36c73)
-
 <br>
 
 Nos dice que hay una contraseña en el directorio `tmp/pass.txt`.
@@ -95,7 +95,7 @@ Si buscamos la versión de dicho Grafana, la encontraremos en el panel inferior,
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/739d5a0e-e150-4397-ae4d-6e757626a23f)
 
 <br>
-
+<br>
 
 ## CVE-2021-43798
 
@@ -114,6 +114,7 @@ Lo que haremos ahora será descargar el exploit usando searchsploit, poniendo `s
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/e26d8c66-6485-4b35-b53f-bbba6e7676c0)
+
 <br>
 
 Vemos que tan solo cuenta con un parámetro que sería el HOST, por lo que lo usaremos de la siguiente forma `python3 50581.py -H http://172.17.0.2:3000`, nos aparecerá una consola interactiva:
@@ -150,11 +151,11 @@ Recordemos que estaba el puerto 22 (ssh) abierto por lo que intentaremos autenti
 
 ## Escala de Privilegios
 
-Si ejecutamos `sudo -l` podemos ver que podemos ejecutar el archivo `maintenance.py con /usr/bin/python3` sin proporcionar.<br>
-
+Si ejecutamos `sudo -l` podemos ver que podemos ejecutar el archivo `maintenance.py con /usr/bin/python3` sin proporcionar. <br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/f6f4d6ec-9797-4ddd-9c8d-cac18dd37d0b)
+
 <br>
 
 Nos dirigimos al directorio `/opt` con `cd /opt/`, y vemos que somos el el propietario del archivo y por lo tanto podemos modificarlo:
