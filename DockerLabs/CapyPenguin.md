@@ -44,7 +44,7 @@ Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introduci
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/06bf7933-f450-4c49-91ef-bb7e26261fed)
 <br>
 
-Y nos está dando alguna pista respecto al rockyou cuando vayamos a aplicar fuerza bruta, además nos indica un posible usuario que sería **capybarauser**
+Y nos está dando alguna pista respecto al rockyou cuando vayamos a aplicar fuerza bruta, además nos indica un posible usuario que sería **capybarauser**.
 
 <br>
 <br>
@@ -59,7 +59,7 @@ Pero antes de empezar a hacer fuerza bruta, debemos seguir la pista que nos dej�
 `-I` ⮞ para que sobrescriba el archivo hydra.restore en el caso de que hayamos cancelado un proceso de fuerza bruta antes <br> 
 <br>
 
-Una vez hecha la fuerza bruta al mysql, nos encontrará las siguientes credenciales para el usuario **capypenguin**.:
+Una vez hecha la fuerza bruta al mysql, nos encontrará las siguientes credenciales para el usuario **capybarauser**:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/b5b900b8-7b22-4f37-83e0-ade8cb83396d)
