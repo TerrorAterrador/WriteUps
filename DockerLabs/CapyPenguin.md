@@ -31,7 +31,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **80**, **22** y **3306**.
 <br>
 
-![alt text](image.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/b544b52d-5645-4629-9f81-7ab3264f304d)
 
 <br>
 <br>
@@ -41,7 +41,7 @@ Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, 
 Al ver que está abierto el puerto 80 nos dirigimos al Navegador Web e introducimos la dirección IP podemos ver una página como está:
 <br>
 
-![alt text](image-2.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/06bf7933-f450-4c49-91ef-bb7e26261fed)
 
 <br>
 
@@ -63,7 +63,7 @@ Pero antes de empezar a hacer fuerza bruta, debemos seguir la pista que nos dej�
 > Si te da un error como el de abajo, entra **aquí** para solucionarlo__:
 <br>
 
-![alt text](image-3.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/02361559-3503-4606-8d04-602919c4aac0)
 
 <br>
 
@@ -80,28 +80,28 @@ Una vez hecha la fuerza bruta al mysql, nos encontrará las siguientes credencia
 Accedemos al servidor de mysql con la siguiente instrucción: `mysql -u capypenguin -p` ponemos la contraseña, comprobamos que podemos acceder:
 <br>
 
-![alt text](image-4.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/26e8ba24-b93b-43b7-869e-8e05c4743cf0)
 
 <br>
 
 Listamos las bases de datos con `show databases;`: 
 <br>
 
-![alt text](image-5.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/0b8fb185-9777-492f-9972-686b7a51ae8c)
 
 <br>
 
 Vemos varias bases de datos pero todas menos la de `pinguinasio_db` son las de por defecto, por lo que entramos a la base de datos `pinguinasio_db` con `use pinguinasio_db`. Una vez seleccionada, listamos las tablas de dicha base de datos con `show tables`:
 <br>
 
-![alt text](image-6.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/f1914b34-7341-4678-8adc-06a22f0f58d1)
 
 <br>
 
 Observamos que hay una tabla llamada `users` por lo que haremos `select * from users` lo cual nos permitirá listar todo el contenido de dicha tabla. Nos mostraría el siguiente contenido:
 <br>
 
-![alt text](image-7.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/3b4295b2-c894-4e9a-9fda-70255541ad87)
 
 <br>
 <br>
@@ -113,7 +113,7 @@ Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Ca
  > El (;) concatena dos comandos.
 <br>
 
-![alt text](image-8.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/d3b4b36d-e2d7-42c9-9b43-50c884503335)
 
 <br>
 <br>
@@ -124,14 +124,14 @@ Una vez dentro de la máquina ejecutamos `sudo -l` observamos que podemos correr
 `-l` ⮞ listar comandos que podemos ejecutar como sudo(sudoers).<br>
 <br>
 
-![alt text](image-9.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/0725a4ed-2bc2-48bd-b4c7-baa1d5d2ca64)
 
 <br>
 
 Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de `sudo` en `/usr/bin/nano`, y nos encontramos con lo siguiente:
 <br>
 
-![alt text](image-10.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/5be62386-af3e-4702-8363-a275e63c6d0d)
 
 <br>
 
@@ -148,4 +148,4 @@ Por lo cual para elevar privilegios lo que debemos hacer es seguir dichos pasos 
 Y listo ya somos root!
 <br>
 
-![alt text](image-12.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/7200c882-a04a-42c9-92bd-2bb0e3c2b61e)
