@@ -119,7 +119,8 @@ Por lo que ahora nos mandaríamos una revshell poniendo lo siguiente en el busca
 <br>
 <br>
 
-## Escala de Privilegios
+## Escalada de Privilegios
+
 Antes de empezar a probar como escalar privilegios haremos un sencillo tratamiento de la tty poniendo en orden lo siguiente: <br>
 1-.`script /dev/null -c bash` <br>
 2-.`Pulsamos CTRL+Z` <br>
