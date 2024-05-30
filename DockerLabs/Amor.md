@@ -29,7 +29,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que está abierto el puerto **22** y **80**.
 <br>
 
-![alt text](image.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/8563720d-b839-447e-988d-bb80300a4b67)
 
 <br>
 <br>
@@ -39,7 +39,7 @@ Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, 
 Al ver que aloja un servidor web, nos dirigimos a él poniendo en el buscador la ip que en este caso sería `172.17.0.2`. Vemos que nos da varias vistas:
 <br>
 
-![alt text](image-1.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/ce9ba3fe-f606-47cc-8e14-9323006440a0)
 
 <br>
 
@@ -58,7 +58,7 @@ Una vez conocemos los posibles usuarios haremos un ataque de fuerza bruta al ser
 No encontraríamos nada, por lo que haremos fuerza bruta al otro usuro (Carlota) de la siguiente forma `hydra -l carlota -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2`, en esta caso si que nos encontraría la contraseña:
 <br>
 
-![alt text](image-2.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/dd0fa07f-95cd-4dfd-8661-ab1c4dcecc44)
 
  > Podríamos usar un archivo el cual contenga los nombre de usuarios, pero en esta caso tardaría más en encontrarnos la contraseña siempre y cuando pongamos primero al usuario juan.
 
@@ -87,20 +87,13 @@ En este caso no será necesario el Tratamiento de la TTY con tan solo escribiend
 Ejecutamos el comando `sudo -l`. <br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
 
-![alt text](image-3.png)
-
-<br>
-
-Observamos que no podemos correr nada por lo que por hay no podremos escalar:
-<br>
-
-![alt text](image-5.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/59e0946c-7f69-430c-b586-a0ef4e31b6f0)
 
 <br>
 
 Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de permisos SUID no encontramos nada potencial para escalar privilegios. <br>
 
-![alt text](image-4.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/e2862f75-c832-4f97-be42-175ef81ccdf6)
 <br>
 
 `/` ⮞ buscamos desde la raíz <br>
@@ -112,14 +105,14 @@ Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de perm
 Si nos vamos a la siguiente ruta `/home/carlota/Desktop/fotos/vacaciones/imagen.jpg` dentro del directorio personal de **carlota** nos encontramos con una imagen, nos la llevamos a nuestra máquina de atacante montando un servidor http con python de la siguiente manera: `python3 -m http.server 555`.
 <br>
 
-![alt text](image-6.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/c8c89ec2-e7a4-4532-a7f1-ff9757a29241)
 
 <br>
 
 Obtenemos dicha imagen, con el siguiente comando desde nuestra máquina de atacante `wget 172.17.0.2:555/imagen.jpg`
 <br>
 
-![alt text](image-7.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/8f146058-f302-4061-9149-8d875a340341)
 
 <br>
 
@@ -128,41 +121,39 @@ Obtenemos dicha imagen, con el siguiente comando desde nuestra máquina de ataca
 Pasamos a analizar los metadatos de la imagen, para ver si tiene algo oculto, usaremos el siguiente comando: `steghide extract -sf imagen.jpg`, nos pedirá una passphrase pero le damos al enter, y obtendremos un archivo `secret.txt` el cual contendrá el siguiente contenido:
 <br>
 
-![alt text](image-9.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/bc96bdef-8057-447b-9f64-59837d284d5b)
 
 <br>
 
 Parece que tiene un formato de base64 por lo que pasaremos a decodificarlo con el siguiente comando `cat secret.txt`, y obtendremos lo que parece una contraseña:
 <br>
 
-![alt text](image-10.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/f8ae1f7a-bed5-4212-81fa-812845870ba8)
 
 <br>
 
 Probamos a autenticarnos como oscar con el siguiente comando `su oscar` -> introducimos la contraseña y listo ya seremos oscar y escribimos `bash` para que nos lance una bash:
 <br>
 
-![alt text](image-11.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/56d202b6-f64c-43cf-b580-ce4585832cbc)
 
 <br>
 
 Seguimos el mismo procedimiento de antes ejecutando el comando `sudo -l` y los reporta lo siguiente:
 <br>
 
-![alt text](image-12.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/d70b5646-7f76-4925-9d37-fad3361ff03e)
 
 <br>
 
 Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de sudo en ruby, y nos encontramos con lo siguiente:
 <br>
 
-![alt text](image-13.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/804e3fcd-5f15-44fa-8c3c-ed073e80517d)
 
 <br>
 
 Por lo cual ejecutaremos lo siguiente `sudo -u root ruby -e 'exec "/bin/bash"'`, y listo ya seremos root:
 <br>
 
-![alt text](image-14.png)
-
-
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/1716e422-11bc-4ec8-a191-49db425e1f1b)
