@@ -41,8 +41,6 @@ Al ver que aloja un servidor web, nos dirigimos a él poniendo en el buscador la
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/ce9ba3fe-f606-47cc-8e14-9323006440a0)
 
-<br>
-
 Como por ejemplo, que un usuario tiene una contraseña débil y que existen dos posible usuarios `Juan` y `Carlota`.
 
 <br>
