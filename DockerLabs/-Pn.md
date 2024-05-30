@@ -29,7 +29,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que está abierto el puerto **21** y **8080**.
 <br>
 
-![alt text](image.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/44f6d073-52a3-4b3c-9dee-cef94ebe4edc)
 
 <br>
 
@@ -41,7 +41,7 @@ Al ver que está abierto el puerto FTP vamos ha hacer un escaneo de nmap pero pa
 `-oN` ⮞ lo exporta en formato nmap al archivo targeted
 <br>
 
-![alt text](image-1.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/530c86d6-efde-4e04-8be6-468d27df3b57)
 
 <br>
 <br>
@@ -52,7 +52,7 @@ Al ver que está abierto el puerto FTP vamos ha hacer un escaneo de nmap pero pa
 Una vez ya conozcamos que la versión del ftp es vulnerable al login como `anonymous`, por lo que nos logeamos como este de la siguiente forma `ftp 172.17.0.2` poniendo `anonymous` como login y contraseña, y vemos que tiene un archivo llamado `tomcat.txt`:
 <br>
 
-![alt text](image-2.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/24e78158-d66b-49b7-b739-85c760917b1b)
 <br>
 
 Nos lo guardamos en nuestra máquina con `get tomcat.txt` por si nos hiciera falta más adelante.
@@ -62,7 +62,7 @@ Nos lo guardamos en nuestra máquina con `get tomcat.txt` por si nos hiciera fal
 Vemos el contenido del archivo con `cat tomcat.txt`, y bueno tenemos un posible usuario llamado `tomcat`:
 <br>
 
-![alt text](image-3.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/cae42bee-ed28-4526-9959-14646212a510)
 
 <br>
 <br>
@@ -73,27 +73,27 @@ Vemos el contenido del archivo con `cat tomcat.txt`, y bueno tenemos un posible 
 Al ver que aloja un servidor web, nos dirigimos a él poniendo en el buscador la ip que en este caso sería `172.17.0.2:8080`. Observamos que en dicho servidor web se aloja un `Apache TomCat 9.0.88` .
 <br>
 
-![alt text](image-4.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/20aee9e5-5540-40ff-9183-d5fd4f7a5523)
 
 <br>
 
 Si echamos un vistazo por la página vemos en el siguiente recuadro amarillo, un link para acceder al `manager webapp`:
 <br>
 
-![alt text](image-9.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/0643d2b1-75b7-4a83-a1e2-d48b012731eb)
 <br>
 
 Si pinchamos nos sale lo siguiente:
 <br>
 
-![alt text](image-8.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/95018d56-5ceb-4855-8af6-6f901c543f94)
 
 <br>
 
 Si buscamos en páginas como [Hacktricks](https://book.hacktricks.xyz/v/es), por la credenciales por defecto de Apache Tomcat nos encontraremos con algo parecido a esto:
 <br>
 
-![alt text](image-10.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/730fc856-9dc1-42f6-98f4-ac529d53ef09)
 
 <br>
 
@@ -103,14 +103,14 @@ Probamos las credenciales que aparecen ahí, y las que funcionan son las de `tom
 Ahora nos encontramos con el panel de admin de apache, que tiene esta pinta:
 <br>
 
-![alt text](image-12.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/e4b9ae3f-4d5b-47aa-9482-236d27a64b48)
 
 <br>
 
 Ahora lo que debemos hacer es buscar alguna manera de intentar entrar en la máquina `-Pn`, en la misma página de [Hacktricks](https://book.hacktricks.xyz/v/es/network-services-pentesting/pentesting-web/tomcat) donde he encontrado las credenciales por defecto más abajo nos menciona una RCE si tienes acceso al panel de Administrador que es justo lo que hemos conseguido: 
 <br>
 
-![alt text](image-14.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/47253580-fa7f-4875-94cd-110ba95b69d3)
 
 <br>
 
@@ -125,7 +125,7 @@ Nos dice que tenemos que subir un archivo `.war`, para ello usaremos `msfvenom` 
 Observamos que se nos ha generado el archivo con el cual nos mandaremos una reverse shell:
 <br>
 
-![alt text](image-15.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/9b8d56e1-0948-48ab-aef3-634c4eb15c83)
 <br>
 
 En primer lugar, nos pondremos en escucha por el puerto especificado, en este caso el `443` con el siguiente comando `nc -nlvp 443`.
@@ -134,19 +134,19 @@ En primer lugar, nos pondremos en escucha por el puerto especificado, en este ca
 En segundo lugar, subiremos el archivo `revshell.war` al Panel de Administrador de Tomcat en el apartado que dice `WAR file to deploy`:
 <br>
 
-![alt text](image-16.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/c3bf91d8-afb9-4d55-9a24-37c3b158f50f)
 <br>
 
 Nos dice que se ha subido correctamente, comprobamos que el archivo se encuentra en esta tabla:
 <br>
 
-![alt text](image-17.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/75c1bbf3-54ae-436d-b049-4090c98d4ca4)
 <br>
 
 Una vez que le hemos dado click recibiremos la revshell, por el puerto que nos habiamos puesto en escucha
 <br>
 
-![alt text](image-18.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/dd9d2610-8a55-4aa1-bf94-4ca85f876aa6)
 
 <br>
 <br>
@@ -163,6 +163,6 @@ No es necesario el tratamiento de la TTY, pero si queremos hacer alguna prueba c
 No hará falta la escalar privilegios ya que hemos accedido directamente a la máquina víctima `-Pn` como el usuario **root**:
 <br>
 
-![alt text](image-19.png)
+![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/427ecc79-24bd-4386-bc92-afdc4f7dc51e)
 
  > El (;) concatena dos comandos.
