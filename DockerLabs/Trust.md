@@ -69,7 +69,7 @@ Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Tr
 <br>
 <br>
 
-## Escala de Privilegios
+## Escalada de Privilegios
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **mario** si hacemos `whoami`.
 
 

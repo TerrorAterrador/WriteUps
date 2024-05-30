@@ -149,7 +149,7 @@ Recordemos que estaba el puerto 22 (ssh) abierto por lo que intentaremos autenti
 <br>
 <br>
 
-## Escala de Privilegios
+## Escalada de Privilegios
 
 Si ejecutamos `sudo -l` podemos ver que podemos ejecutar el archivo `maintenance.py con /usr/bin/python3` sin proporcionar. <br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo <br>

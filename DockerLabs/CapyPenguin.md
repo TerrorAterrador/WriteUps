@@ -110,7 +110,7 @@ Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Ca
 <br>
 <br>
 
-## Escala de Privilegios
+## Escalada de Privilegios
 
 Una vez dentro de la máquina ejecutamos `sudo -l` observamos que podemos correr `/usr/bin/nano` sin proporcionar contraseña.<br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo(sudoers).

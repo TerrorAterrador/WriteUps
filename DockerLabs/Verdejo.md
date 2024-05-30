@@ -83,7 +83,7 @@ Una vez mandada la revshell podemos ver que todo ha ido bien:
 <br>
 <br>
 
-## Escala de Privilegios
+## Escalada de Privilegios
 
 Antes de empezar a probar como escalar privilegios haremos un sencillo tratamiento de la tty poniendo en orden lo siguiente: <br>
 1-.`script /dev/null -c bash` <br>
@@ -113,14 +113,14 @@ Entonces mirando en [GTFOBins](https://gtfobins.github.io/) podemos ver que nos 
 
 Una vez que tenemos la id_rsa si probamos a intentar logear como root a través del ssh de la siguiente forma -> `ssh -i id_rsa root@172.17.0.2`, nos pedirá una passphrase la cual no tenemos por lo que pasaremos a crackear con JhonTheRipper. <br>
 
-En primer lugar sacamos el hash de la id_rsa de la siguiente forma `ssh2john id_rsa > hash`, una vez que tenemos el hash pasamos a crackearlo para intentar sacar la passphare, lo haremos de la siguiente forma -> `john hash --wordlist=/usr/share/wordlist/rockyou.txt` y nos mostraría algo tal que así:
+En primer lugar sacamos el hash de la id_rsa de la siguiente forma `ssh2john id_rsa > hash`, una vez que tenemos el hash pasamos a crackearlo para intentar sacar la passphrase, lo haremos de la siguiente forma -> `john hash --wordlist=/usr/share/wordlist/rockyou.txt` y nos mostraría algo tal que así:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/1c2569dd-4f3a-435f-a99e-6ab421bbbb89)
 
 <br>
 
-Una vez que conocemos la passphare probamos a autenticarnos como lo intentamos antes -> `ssh -i id_rsa root@172.17.0.2`, y después introducimos la passphrase y listo ya somos root!
+Una vez que conocemos la passphrase probamos a autenticarnos como lo intentamos antes -> `ssh -i id_rsa root@172.17.0.2`, y después introducimos la passphrase y listo ya somos root!
 
 <br>
 

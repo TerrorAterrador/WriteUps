@@ -84,7 +84,7 @@ Por lo que ahora nos mandaríamos una [revshell](https://www.revshells.com/). En
 <br>
 <br>
 
-## Escala de Privilegios
+## Escalada de Privilegios
 
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **www-data** para comprobarlo hacemos `whoami`.
 <br>

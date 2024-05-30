@@ -112,7 +112,7 @@ Por lo que ahora nos mandaríamos una [revshell](https://www.revshells.com/). En
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/af76da05-55f2-4767-b1a9-15137429dc65)
 
 
-## Escala de Privilegios
+## Escalada de Privilegios
 Antes de empezar a probar como escalar privilegios haremos un sencillo tratamiento de la tty poniendo en orden lo siguiente: <br>
 1-.`script /dev/null -c bash` <br>
 2-.`Pulsamos CTRL+Z` <br>

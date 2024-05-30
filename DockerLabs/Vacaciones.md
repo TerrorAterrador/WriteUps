@@ -13,7 +13,7 @@ Una vez desplegada comprobamos que tenemos conectividad con `ping -c 1 172.17.0.
 
 Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -vvv -n -Pn 172.17.0.2 -oG allPorts` <br>
 `-p-` ⮞ aplicar reconocimiento a todos los puertos <br>
-`--open` ⮞ solo a los que esten abiertos <br>
+`--open` ⮞ solo a los que estén abiertos <br>
 `--min-rate 5000` ⮞ para enviar paquetes más rápido <br> 
 `-sS` ⮞ para descubrir puertos de manera silenciosa y rápida <br> 
 `-vvv` ⮞ conforme descubre un puerto nos lo muestra por pantalla <br> 
@@ -21,7 +21,7 @@ Ahora vamos con el reconocimiento de nmap `nmap -p- --open --min-rate 5000 -sS -
 `-Pn` ⮞ ignora si esta activa o no la IP<br> 
 `-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk) <br>
 <br>
-Podemos ver los reultados en el archivo grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**
+Podemos ver los resultados en el archivo grepeable haciendo `cat allPorts`, observamos que están abiertos los puertos **22** y **80**
 ![nmap](https://github.com/TerrorAterrador/WriteUps/assets/128630899/ef28633b-ba49-4df1-8d2d-4efc516c8471)
 
 <br>
@@ -46,12 +46,12 @@ Ahora conocemos dos usuarios con posibilidades de ser candidatos a pertenecer a 
 <br>
 <br>
 ## SSH (Puerto 22)
-Una vez conocemos el usuario y su contraseña probramos a entrar a la máquina Vacaciones con `ssh camilo@172.17.0.2`, y a continuación nos pedirá la contraseña. *Si te aparece un error como este [aquí](https://desarrolloweb.com/faq/solucionar-remote-host-identification-has-changed-al-hacer-ssh) puedes encontrar la solución.* <br>![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/2128bd5f-33a2-4bb0-ac54-6555c7aa5817)
+Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Vacaciones con `ssh camilo@172.17.0.2`, y a continuación nos pedirá la contraseña. *Si te aparece un error como este [aquí](https://desarrolloweb.com/faq/solucionar-remote-host-identification-has-changed-al-hacer-ssh) puedes encontrar la solución.* <br>![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/2128bd5f-33a2-4bb0-ac54-6555c7aa5817)
 
 <br>
 <br>
 
-## Escala de Privilegios
+## Escalada de Privilegios
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **camilo**, podemos escribir `bash` para poder estar más cómodos operando en la máquina. <br>
 Si ejecutamos `sudo -l` podemos ver que no podemos correr nada como sudo.<br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/5c6cbc3a-5961-49bc-94ec-184653555547) <br>
@@ -74,7 +74,7 @@ En cambio si probamos a filtrar por **mail** `find / -name "mail" 2>/dev/null` n
 Por lo que nos dirigimos a esa ruta **/var/mail** vemos que dentro de la carpeta camilo hay un archivo llamado **correo.txt** y si hacemos `cat correo.txt` vemos lo siguiente: <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/5ff7799a-92f5-46b0-a9e3-4dcdab98917a)
 <br>
-Por lo que vamos a a probar camibar al usuario **juan** que era el que había enviado el correo, si hacemos `su juan` para cambiar de usuario y ponemos la contraseña, vemos que hemos cambiado al usuario juan.<br>
+Por lo que vamos a a probar cambiar al usuario **juan** que era el que había enviado el correo, si hacemos `su juan` para cambiar de usuario y ponemos la contraseña, vemos que hemos cambiado al usuario juan.<br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/d383ae4f-ed07-4238-b0af-422cebf954e6)
 <br>
 Ahora que estamos como juan vamos a listar los permisos que podemos ejecutar como **sudo** con `sudo -l`, y vemos que podemos ejecutar **/usr/bin/ruby**. <br>
