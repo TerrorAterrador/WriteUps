@@ -81,6 +81,7 @@ Si echamos un vistazo por la página vemos en el siguiente recuadro amarillo, un
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/0643d2b1-75b7-4a83-a1e2-d48b012731eb)
+
 <br>
 
 Si pinchamos nos sale lo siguiente:
