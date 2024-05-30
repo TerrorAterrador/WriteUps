@@ -44,6 +44,8 @@ Al ver que aloja un servidor web, nos dirigimos a él poniendo en el buscador la
 <br>
 
 Como por ejemplo, que un usuario tiene una contraseña débil y que existen dos posible usuarios `Juan` y `Carlota`.
+
+<br>
 <br>
 
 ## Hydra / Medusa
@@ -68,7 +70,7 @@ No encontraríamos nada, por lo que haremos fuerza bruta al otro usuro (Carlota)
 ## SSH (Puerto 22)
 Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Amor con `ssh carlota@172.17.0.2`, y a continuación nos pedirá la contraseña. <br>
 
-> Si te aparece un error como este [aquí](https://desarrolloweb.com/faq/solucionar-remote-host-identification-has-changed-al-hacer-ssh) puedes encontrar la solución.* <br>![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/2128bd5f-33a2-4bb0-ac54-6555c7aa5817)
+> Si te aparece un error como este [aquí](https://desarrolloweb.com/faq/solucionar-remote-host-identification-has-changed-al-hacer-ssh) puedes encontrar la solución. <br>![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/2128bd5f-33a2-4bb0-ac54-6555c7aa5817)
 
 <br>
 <br>
@@ -84,17 +86,15 @@ En este caso no será necesario el Tratamiento de la TTY con tan solo escribiend
 
 <br>
 
-Ejecutamos el comando `sudo -l`. <br>
-`-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
-
+Ejecutamos el comando `sudo -l` para ver que podemos ejecutar como sudo, pero no encontramos nada: <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/59e0946c-7f69-430c-b586-a0ef4e31b6f0)
 
 <br>
 
-Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de permisos SUID no encontramos nada potencial para escalar privilegios. <br>
+Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de permisos SUID no encontramos nada potencial para escalar privilegios. 
+<br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/e2862f75-c832-4f97-be42-175ef81ccdf6)
-<br>
 
 `/` ⮞ buscamos desde la raíz <br>
 `-perm -4000` ⮞ mostrar los permisos SUID <br>
@@ -115,6 +115,7 @@ Obtenemos dicha imagen, con el siguiente comando desde nuestra máquina de ataca
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/8f146058-f302-4061-9149-8d875a340341)
 
 <br>
+<br>
 
 ### Estenografía
 
@@ -125,21 +126,21 @@ Pasamos a analizar los metadatos de la imagen, para ver si tiene algo oculto, us
 
 <br>
 
-Parece que tiene un formato de base64 por lo que pasaremos a decodificarlo con el siguiente comando `cat secret.txt`, y obtendremos lo que parece una contraseña:
+Parece que tiene una cadena de texto en base64 por lo que pasaremos a decodificarla con el siguiente comando `cat secret.txt`, y obtendremos lo que parece una contraseña:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/f8ae1f7a-bed5-4212-81fa-812845870ba8)
 
 <br>
 
-Probamos a autenticarnos como oscar con el siguiente comando `su oscar` -> introducimos la contraseña y listo ya seremos oscar y escribimos `bash` para que nos lance una bash:
+Probamos a autenticarnos como oscar con el siguiente comando `su oscar` -> introducimos la contraseña y ya seremos oscar y escribimos `bash` para ejecutar una terminal de bash en ves de una sh:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/56d202b6-f64c-43cf-b580-ce4585832cbc)
 
 <br>
 
-Seguimos el mismo procedimiento de antes ejecutando el comando `sudo -l` y los reporta lo siguiente:
+Seguimos el mismo procedimiento de antes, ejecutando el comando `sudo -l` y los reporta lo siguiente:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/d70b5646-7f76-4925-9d37-fad3361ff03e)
