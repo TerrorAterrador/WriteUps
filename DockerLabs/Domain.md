@@ -66,6 +66,7 @@ Lo haremos de la siguiente forma `enum4linux -a 172.17.0.2`, podemos ver que nos
 <br>
 
 ## Hydra / Medusa
+
 Una vez conocemos los posibles usuarios haremos un ataque de fuerza bruta al servicio samba usando hydra en primer lugar, usaremos el usuario bob `hydra -l bob -P /usr/share/wordlists/rockyou.txt smb://172.17.0.2`. <br> 
 `-h` ⮞ dirección IP de la máquina victima <br>
 `-u` ⮞ nombre del posible usuario <br> 

@@ -45,6 +45,7 @@ Ahora conocemos dos usuarios con posibilidades de ser candidatos a pertenecer a 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/7d422130-cb8b-4198-9382-20eff59cf174)
 <br>
 <br>
+
 ## SSH (Puerto 22)
 Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Vacaciones con `ssh camilo@172.17.0.2`, y a continuación nos pedirá la contraseña. *Si te aparece un error como este [aquí](https://desarrolloweb.com/faq/solucionar-remote-host-identification-has-changed-al-hacer-ssh) puedes encontrar la solución.* <br>![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/2128bd5f-33a2-4bb0-ac54-6555c7aa5817)
 
@@ -52,6 +53,7 @@ Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Va
 <br>
 
 ## Escalada de Privilegios
+
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **camilo**, podemos escribir `bash` para poder estar más cómodos operando en la máquina. <br>
 Si ejecutamos `sudo -l` podemos ver que no podemos correr nada como sudo.<br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/5c6cbc3a-5961-49bc-94ec-184653555547) <br>
@@ -64,6 +66,7 @@ Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de perm
 `-perm -4000` ⮞ mostrar los permisos SUID <br>
 `2>/dev/null` ⮞ para que no nos muestre los errores <br>
 <br>
+
 Por lo que ahora deberíamos buscar el correo que había enviado Juan para Camilo si hacemos `find / -name "correo" 2>/dev/null`, vemos que no hay nada. <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/8dfbe740-b75a-4118-9a90-9cb4bdb761a8)
  <br>

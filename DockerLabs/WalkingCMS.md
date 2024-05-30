@@ -58,6 +58,7 @@ Una vez que sabemos que tiene un wordpress, pasaremos a usar la herramienta `wp-
 <br>
 
 ## Fuerza Bruta
+
 Una vez conocemos el posible usuario haremos un ataque de fuerza bruta al panel de login que sería `/wp-admin`. Dicho ataque de fuerza bruta se podría hacer con burpsuite pero en este caso yo usaré wpscan ya que va más rápido, por lo que pondremos lo siguiente: `wpscan --url http://172.17.0.2/wordpress --passwords /usr/share/wordlists/rockyou.txt --usernames mario`. <br> 
 `-url` ⮞ dirección IP de la máquina victima <br>
 `-passwords` ⮞ especificamos la ruta del diccionario en este caso sería el [rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt). <br> 
