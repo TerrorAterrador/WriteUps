@@ -96,7 +96,7 @@ Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de perm
 
 `/` ⮞ buscamos desde la raíz <br>
 `-perm -4000` ⮞ mostrar los permisos SUID <br>
-`2>/dev/null` ⮞ para que no nos muestre los errores <br>
+`2>/dev/null` ⮞ para que no nos muestre los errores 
 
 <br>
 
