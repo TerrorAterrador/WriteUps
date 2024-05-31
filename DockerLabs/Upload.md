@@ -93,7 +93,7 @@ Comprobamos que hemos podido ingresar a la Máquina Víctima como **www-data** p
 
 <br>
 
-Si ejecutamos `sudo -l` podemos ver que no podemos correr `/usr/bin/env` como `root` sin proporcionar contraseña.<br>
+Si ejecutamos `sudo -l` podemos ver que podemos correr `/usr/bin/env` como `root` sin proporcionar contraseña.<br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo<br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/07208f3b-6bda-4f5e-a1b5-a1d02b3fe87c)
