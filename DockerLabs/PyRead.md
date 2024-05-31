@@ -88,9 +88,9 @@ Vemos que hemos ingresado a la máquina como el usuario **primpi**
 
 <br>
 
-Si ejecutamos `sudo -l` podemos ver que podemos ejecutar `/usr/bin/dnf` sin proporcionar contraseña y poder escalar a **root**.<br>
-
-`-l` ⮞ listar comandos que podemos ejecutar como sudo <br>
+Si ejecutamos `sudo -l` podemos ver que podemos ejecutar `/usr/bin/dnf` sin proporcionar contraseña y poder escalar a **root**.
+`-l` ⮞ listar comandos que podemos ejecutar como sudo 
+<br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/d057bbe9-a595-435c-a090-da08e62c96b5)
 
