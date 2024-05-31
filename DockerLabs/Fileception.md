@@ -102,12 +102,14 @@ Y nos devuelve esta contraseña **base_85_decoded_password**, por lo que probare
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/140d0d76-c863-4ad3-a568-b514967cb754)
+
 <br>
 
 Dicho archivo tiene el siguiente contenido:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/0449d054-1847-41f4-a771-d07bafb00971)
+
 <br>
 
 Vemos que se trata de [Ook!](https://es.wikipedia.org/wiki/Ook!)
