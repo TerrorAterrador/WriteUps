@@ -50,12 +50,14 @@ Una vez ya conozcamos que la versión del ftp es vulnerable al login como `anony
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/6da74abf-4a3f-464e-bb58-9873f830e482)
+
 <br>
 
 Nos lo guardamos en nuestra máquina con `get hello_peter.jpg`, al tratarse de una imagen intentaremos ver los metadatos de la imagen, de la siguiente forma `steghide extract -sf hello_peter.jpg`, pero como no tenemos la passphrase no podremos ver si hay algún archivo oculta en la imagen:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/1b087867-ae5f-4bfe-a04e-862e1558b2fd)
+
 <br>
 
 Si probamos a crackear la passphrase con `stegseek --crack hello_peter.jpg /usr/share/wordlists/rockyou.txt secret.txt`, tampoco tendremos éxito:
