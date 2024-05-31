@@ -114,6 +114,7 @@ Por lo que ahora nos mandaríamos una [revshell](https://www.revshells.com/). En
 
 
 ## Escalada de Privilegios
+
 Antes de empezar a probar como escalar privilegios haremos un sencillo tratamiento de la tty poniendo en orden lo siguiente: <br>
 1-.`script /dev/null -c bash` <br>
 2-.`Pulsamos CTRL+Z` <br>
@@ -122,6 +123,8 @@ Antes de empezar a probar como escalar privilegios haremos un sencillo tratamien
 5-.`export SHELL=bash && export TERM=xterm` <br>
 6-. `stty rows 49 cols 210`<br>
 <br>
+
+ > Puedes usar también esta interfaz gráfica para el Tratamiento de la TTY de El Pinguino de Mario [PinguTTY](https://github.com/Maalfer/PinguTTY)
 
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **www-data**, hacemos un `cat /etc/passwd | grep "sh$"` para ver los posibles usuarios: 
 <br>

@@ -11,9 +11,11 @@ Una vez desplegada comprobamos que tenemos conectividad con ```ping -c 1 172.17.
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/af4d0189-b640-4576-aca6-3c02c75c9434)
 <br>
-`-c 1` ⮞ solo lo repite una vez<br>
+`-c 1` ⮞ solo lo repite una vez
 <br>
+
 Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS -vvv -n -Pn 172.17.0.2 -oG allPorts``` <br>
+
 `-p-` ⮞ aplicar reconocimiento a todos los puertos <br>
 `--open` ⮞ solo a los que estén abiertos <br>
 `--min-rate 5000` ⮞ para enviar paquetes más rápido <br> 
@@ -24,12 +26,14 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 `-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk)
 <br>
 
-Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que tan solo está abierto el puerto **8080** y el **22**
+Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que están abierto los puertos **8080** y **22**
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/a1c0f66b-e114-4d9c-8b06-44d197ff9d93)
+
 <br>
 <br>
+
 ## Página Web (Puerto 8080)
 
 Al ver que está abierto el puerto 8080 nos dirigimos al Navegador Web e introducimos la dirección IP como URL de la siguiente forma : `172.17.0.2:8080` ya que es el puerto 8080 el que aloja este servidor Web. Podemos ver un panel de login para Jenkins: 
@@ -81,6 +85,7 @@ Nos reporta lo siguiente:
 <br>
 
 ## SSH (Puerto 22)
+
 Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Vacaciones con `ssh bobby@172.17.0.2`, y a continuación nos pedirá la contraseña. *Si te aparece un error como este [aquí](https://desarrolloweb.com/faq/solucionar-remote-host-identification-has-changed-al-hacer-ssh) puedes encontrar la solución.* <br>![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/2128bd5f-33a2-4bb0-ac54-6555c7aa5817)
 <br>
 <br>

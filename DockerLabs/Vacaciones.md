@@ -55,33 +55,48 @@ Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Va
 ## Escalada de Privilegios
 
 Comprobamos que hemos podido ingresar a la Máquina Víctima como **camilo**, podemos escribir `bash` para poder estar más cómodos operando en la máquina. <br>
+
 Si ejecutamos `sudo -l` podemos ver que no podemos correr nada como sudo.<br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/5c6cbc3a-5961-49bc-94ec-184653555547) <br>
 `-l` ⮞ listar comandos que podemos ejecutar como sudo
 <br>
+
 Al igual que si ejecutamos `find / -perm -4000 2>/dev/null` en búsqueda de permisos SUID no encontramos nada potencial para escalar privilegios. <br>
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/158e8c0f-fff5-4424-9631-192a524dc6d8)
 <br>
+
 `/` ⮞ buscamos desde la raíz <br>
 `-perm -4000` ⮞ mostrar los permisos SUID <br>
-`2>/dev/null` ⮞ para que no nos muestre los errores <br>
+`2>/dev/null` ⮞ para que no nos muestre los errores 
 <br>
 
 Por lo que ahora deberíamos buscar el correo que había enviado Juan para Camilo si hacemos `find / -name "correo" 2>/dev/null`, vemos que no hay nada. <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/8dfbe740-b75a-4118-9a90-9cb4bdb761a8)
- <br>
+
 `-name` ⮞ nombre que queremos encontrar <br>
+
 En cambio si probamos a filtrar por **mail** `find / -name "mail" 2>/dev/null` nos encontramos con lo siguiente: <br>
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/82093a77-4392-4805-acd3-15f78656e7b5)
 <br>
-Por lo que nos dirigimos a esa ruta **/var/mail** vemos que dentro de la carpeta camilo hay un archivo llamado **correo.txt** y si hacemos `cat correo.txt` vemos lo siguiente: <br>
+Por lo que nos dirigimos a esa ruta **/var/mail** vemos que dentro de la carpeta camilo hay un archivo llamado **correo.txt** y si hacemos `cat correo.txt` vemos lo siguiente: 
+<br>
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/5ff7799a-92f5-46b0-a9e3-4dcdab98917a)
 <br>
-Por lo que vamos a a probar cambiar al usuario **juan** que era el que había enviado el correo, si hacemos `su juan` para cambiar de usuario y ponemos la contraseña, vemos que hemos cambiado al usuario juan.<br>
+Por lo que vamos a a probar cambiar al usuario **juan** que era el que había enviado el correo, si hacemos `su juan` para cambiar de usuario y ponemos la contraseña, vemos que hemos cambiado al usuario juan.
+<br>
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/d383ae4f-ed07-4238-b0af-422cebf954e6)
 <br>
-Ahora que estamos como juan vamos a listar los permisos que podemos ejecutar como **sudo** con `sudo -l`, y vemos que podemos ejecutar **/usr/bin/ruby**. <br>
+
+Ahora que estamos como juan vamos a listar los permisos que podemos ejecutar como **sudo** con `sudo -l`, y vemos que podemos ejecutar **/usr/bin/ruby**.
+<br>
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/c4ad1313-c23c-470a-818c-704c9d8fe6a7)
 <br>
-Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de sudo en ruby, y nos encontramos con el siguiente comando `sudo ruby -e 'exec "/bin/bash"'`, probamos a ejecutarlo en la máquina y listo hemos elevado a root. <br>
+
+Por lo que deberíamos hacer ahora es dirigirnos a la página [GTFOBins](https://gtfobins.github.io/) (está página nos indica como elevar privilegios dependiendo del binario que podamos ejecutar), después nos vamos a la parte de sudo en ruby, y nos encontramos con el siguiente comando `sudo ruby -e 'exec "/bin/bash"'`, probamos a ejecutarlo en la máquina y listo hemos elevado a root. 
+<br>
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/123bb130-d2e7-4207-a449-01dfb0925eac)
