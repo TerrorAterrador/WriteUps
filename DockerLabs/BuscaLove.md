@@ -56,7 +56,7 @@ Tras inspeccionar el código fuente y no encontrar nada, pasaremos a hacer fuzzi
 
 <br>
 
-Por lo que entendemos que la página aloja un wordpress. Ahora pasaremos a hacer fuzzing al wordpress de la siguiente forma
+Por lo que entendemos que la página aloja un wordpress. Ahora pasaremos a hacer fuzzing al wordpress de la siguiente forma: <br>
 `gobuster dir -w /home/kali/WordLists/directory-medium -u http://172.18.0.2/wordpress -x txt,sql,py,js,php,html`, y nos encuentra el siguiente archivo `.php`:
 <br>
 
