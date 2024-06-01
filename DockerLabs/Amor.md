@@ -48,7 +48,7 @@ Como por ejemplo, que un usuario tiene una contraseña débil y que existen dos 
 
 ## Hydra / Medusa
 
-Una vez conocemos los posibles usuarios haremos un ataque de fuerza bruta al servicio ssh usando hydra en primer lugar, usaremos el usuario bob `hydra -l juan -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2`. <br> 
+Una vez conocemos los posibles usuarios haremos un ataque de fuerza bruta al servicio ssh usando hydra en primer lugar, usaremos el usuario juan `hydra -l juan -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2`. <br> 
 `-h` ⮞ dirección IP de la máquina victima <br>
 `-u` ⮞ nombre del posible usuario <br> 
 `-P` ⮞ ruta del rockyou. Para descargar el diccionario [rockyou](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt).
@@ -66,6 +66,7 @@ No encontraríamos nada, por lo que haremos fuerza bruta al otro usuro (Carlota)
 <br>
 
 ## SSH (Puerto 22)
+
 Una vez conocemos el usuario y su contraseña probamos a entrar a la máquina Amor con `ssh carlota@172.17.0.2`, y a continuación nos pedirá la contraseña. <br>
 
 > Si te aparece un error como este [aquí](https://desarrolloweb.com/faq/solucionar-remote-host-identification-has-changed-al-hacer-ssh) puedes encontrar la solución. <br>![image](https://github.com/TerrorAterrador/WriteUps/assets/128630899/2128bd5f-33a2-4bb0-ac54-6555c7aa5817)
@@ -84,7 +85,9 @@ En este caso no será necesario el Tratamiento de la TTY con tan solo escribiend
 
 <br>
 
-Ejecutamos el comando `sudo -l` para ver que podemos ejecutar como sudo, pero no encontramos nada: <br>
+Ejecutamos el comando `sudo -l` para ver que podemos ejecutar como sudo, pero no encontramos nada: 
+<br>
+
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/59e0946c-7f69-430c-b586-a0ef4e31b6f0)
 
 <br>
