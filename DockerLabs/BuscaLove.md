@@ -98,12 +98,12 @@ Vemos que dicha página es vulnerable a un LFI pasándole la palabra `love`como 
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/3bc715a0-d561-4548-913d-0d76488ce800)
 
-<br>
-
 Podemos observar que existen varios usuarios como **pedro** y **rosa**.
 
 <br>
 <br>
+
+### Hydra
 
 Una vez conocemos los posibles usuarios haremos un ataque de fuerza bruta al servicio ssh usando hydra en primer lugar, usaremos el usuario bob `hydra -l pedro -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2`. <br> 
 `-h` ⮞ dirección IP de la máquina victima <br>
@@ -112,7 +112,7 @@ Una vez conocemos los posibles usuarios haremos un ataque de fuerza bruta al ser
 
 <br>
 
-No encontraríamos nada, por lo que haremos fuerza bruta al otro usuro (Carlota) de la siguiente forma `hydra -l rosa -P /usr/share/wordlists/rockyou.txt ssh://172.18.0.2`, en esta caso si que nos encontraría la contraseña:
+No encontraríamos nada, por lo que haremos fuerza bruta al otro usuario (rosa) de la siguiente forma `hydra -l rosa -P /usr/share/wordlists/rockyou.txt ssh://172.18.0.2`, en esta caso si que nos encontraría la contraseña:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/e4787deb-88e5-4601-ac7c-052017db974c)

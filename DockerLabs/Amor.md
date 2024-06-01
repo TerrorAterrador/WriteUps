@@ -55,7 +55,7 @@ Una vez conocemos los posibles usuarios haremos un ataque de fuerza bruta al ser
 
 <br>
 
-No encontraríamos nada, por lo que haremos fuerza bruta al otro usuro (Carlota) de la siguiente forma `hydra -l carlota -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2`, en esta caso si que nos encontraría la contraseña:
+No encontraríamos nada, por lo que haremos fuerza bruta al otro usuario (Carlota) de la siguiente forma `hydra -l carlota -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2`, en esta caso si que nos encontraría la contraseña:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/dd0fa07f-95cd-4dfd-8661-ab1c4dcecc44)
