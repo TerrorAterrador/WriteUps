@@ -142,7 +142,7 @@ Comprobamos que hemos accedido a la máquina como **rosa**:
  > El (;) concatena dos comandos.
 <br>
 
-En este caso no será necesario el Tratamiento de la TTY con tan solo escribiendo bash ya tendremos una terminal cómoda. En todo caso el tratamiento sería así: <br>
+En este caso no será necesario el Tratamiento de la TTY ya que tendremos una terminal cómoda directamente. En todo caso el tratamiento sería así: <br>
 1-.`script /dev/null -c bash` <br>
 2-.`Pulsamos CTRL+Z` <br>
 3-.`stty raw -echo; fg` <br>
@@ -158,7 +158,7 @@ Ejecutamos el comando `sudo -l`, para ver que podemos correr como sudo y encontr
 
 <br>
 
-Por lo que podemos listar directorios y ver archivos a los que tendríamos acceso, en primer lugar listamos la HOME del usuario **pedro** del siguiente forma `sudo -u root ls -la /home/pedro`, pero no encontramos nada interesante:
+Por lo que podemos listar directorios y ver archivos a los que normalmente no tendríamos acceso. En primer lugar listamos la HOME del usuario **pedro** del siguiente forma `sudo -u root ls -la /home/pedro`, pero no encontramos nada interesante:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/260ac429-d484-49c4-956d-e25fe58c9d5a)
@@ -179,14 +179,14 @@ Vemos un archivo un poco extraño llamado `secret.txt`, como podemos también ve
 
 <br>
 
-Vemos lo que parece un texto codificado en hexadecimal, por lo que nos dirigimos a [CyberChef](https://gchq.github.io/CyberChef/), le demos a la barita mágica y obtendríamos lo siguiente:
+Vemos lo que parece un texto codificado en hexadecimal, por lo que nos dirigimos a [CyberChef](https://gchq.github.io/CyberChef/) en input introducimos la cadena de texto en hexadecimal, le damos a la barita mágica y obtendríamos lo siguiente:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/caad82a9-64b9-4357-8501-520c8a4b68c2)
 
 <br>
 
-Por lo que parece que parece que tenemos una contraseña en texto plano, nos autenticaremos como **pedro** de la siguiente forma `su pedro, introducimos la contraseña descifrada y conseguimos logearnos como **pedro**:
+Por lo que parece que parece que tenemos una contraseña en texto plano, nos autenticaremos como **pedro** de la siguiente forma `su pedro`, introducimos la contraseña descifrada y conseguimos logearnos como **pedro**:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/5fd190b8-18ce-41d2-9fa5-63193d596f0f)
