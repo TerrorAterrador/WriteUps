@@ -13,7 +13,8 @@ Una vez desplegada comprobamos que tenemos conectividad con ```ping -c 1 172.18.
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/efc1166f-2d5f-4e1b-a8cb-f76ae0103390)
 <br>
 
-`-c 1` ⮞ solo lo repite una vez<br>
+`-c 1` ⮞ solo lo repite una vez
+
 <br>
 
 Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS -vvv -n -Pn 172.18.0.2 -oG allPorts``` <br>
@@ -25,6 +26,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 `-n` ⮞ no aplica la resolución DNS (tarda mucho en el caso de que no pongamos dicho parámetro)<br> 
 `-Pn` ⮞ ignora si esta activa o no la IP<br> 
 `-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk)
+
 <br>
 
 Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que están abiertos los puertos **22** y **80**.
@@ -62,7 +64,7 @@ Por lo que entendemos que la página aloja un wordpress. Ahora pasaremos a hacer
 
 <br>
 
-Una vez finalizado la enumeración de posibles archivos y/o directories dentro de la dirección del wordpress pasamos a ver la página web y tendría esta apariencia:
+Una vez finalizado la enumeración de posibles archivos y/o directorios dentro de la dirección del wordpress pasamos a ver la página web y tendría esta apariencia:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/267d040a-cff4-476f-9c00-dfc80b608133)
@@ -83,7 +85,7 @@ Volvemos a la página web, pero esta vez accederemos al archivo que con extensi�
 
 <br>
 
-Vemos que no ha cambiado la apariencia, por lo que en este punto intentaremos probar si existe un LFI (Local File Inclusion) y lo haremos con `wfuzz` de la siguiente manera <br>
+Vemos que no ha cambiado la apariencia, por lo que en este punto intentaremos probar si existe un LFI (Local File Inclusion) y lo haremos con `wfuzz` de la siguiente manera: <br>
 `wfuzz -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -u http://172.18.0.2/wordpress/index.php?FUZZ=../../../../../etc/passwd --hc 404 --hl 40`
 <br>
 
@@ -91,7 +93,7 @@ Vemos que no ha cambiado la apariencia, por lo que en este punto intentaremos pr
 
 <br>
 
-Vemos que dicha página es vulnerable a un LFI pasándole la palabra `love`como parámetro al `index.php` (El comentario que encontramos antes nos daba una pista), por lo que nos dirigimos a la web e introducimos en la URL lo siguiente `http://172.18.0.2/wordpress/index.php?love=../../../../../etc/passwd`
+Vemos que dicha página es vulnerable a un LFI pasándole la palabra `love`como parámetro al `index.php` (El comentario que encontramos antes nos daba una pista), por lo que nos dirigimos a la web e introducimos en la URL lo siguiente: <br> `http://172.18.0.2/wordpress/index.php?love=../../../../../etc/passwd`
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/3bc715a0-d561-4548-913d-0d76488ce800)
