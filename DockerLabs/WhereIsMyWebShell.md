@@ -32,18 +32,6 @@ Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b69f4026-cad2-4dfe-8a29-a6ea9f8ef44a)
 
 <br>
-
-Al ver que está abierto el puerto FTP vamos ha hacer un escaneo de nmap pero para que nos liste más información. Para llevar a cabo eso debemos hacer ```nmap -p21 -sCV 172.17.0.2 -oN targeted``` <br>
-`-p21` ⮞ aplicar el escaneo solo al puerto 21 >
-`-sC` ⮞ ejecuta los scripts de reconocimiento básico, los más comunes <br> 
-`-sV` ⮞ para conocer la versión del servicio que corre por el puerto (se puede juntar con el anterior y quedaría así `-sCV`)<br> 
-`-sS` ⮞ para descubrir puertos de manera silenciosa y rápida <br> 
-`-oN` ⮞ lo exporta en formato nmap al archivo targeted
-<br>
-
-![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/530c86d6-efde-4e04-8be6-468d27df3b57)
-
-<br>
 <br>
 
 ## Página Web (Puerto 80)
