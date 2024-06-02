@@ -11,8 +11,9 @@ Una vez desplegada comprobamos que tenemos conectividad con ```ping -c 1 172.17.
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/af4d0189-b640-4576-aca6-3c02c75c9434)
-<br>
-`-c 1` ⮞ solo lo repite una vez<br>
+
+`-c 1` ⮞ solo lo repite una vez
+
 <br>
 
 Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS -vvv -n -Pn 172.17.0.2 -oG allPorts``` <br>
@@ -26,7 +27,7 @@ Ahora vamos con el reconocimiento de nmap ```nmap -p- --open --min-rate 5000 -sS
 `-oG` ⮞ exportamos el resultado en formato grepeable (para extraer mejor los datos con herramientas como grep, awk)
 <br>
 
-Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que está abierto el puerto **21** y **8080**.
+Podemos ver los resultados en el archivo grepeable haciendo ```cat allPorts```, observamos que están abiertos los puertos **21** y **8080**.
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/44f6d073-52a3-4b3c-9dee-cef94ebe4edc)
