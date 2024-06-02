@@ -63,7 +63,6 @@ Nos dirigimos al archivo `penguin.html`, y vemos lo siguiente:
 ### Estenografía
 
 Probaremos a descargarnos la imagen y ver si se esconde algún archivo detrás de esta.
-
 <br>
 
 Usaremos `steghide` de la siguiente forma `steghide extract -sf penguin.jpg` pero como lo tenemos la passphrase no podremos extraerlo:
@@ -105,7 +104,7 @@ Una vez crackeada la contraseña, abrimos el archivo de KeePass con `keepassxc p
 ## SSH (Puerto 22)
 
 Por lo que una vez que tenemos un posible usuario **pinguino** y una contraseña **pinguinomaravilloso123**, probamos a autenticarnos por `ssh` de la siguiente forma `ssh pinguino@172.17.0.2`, introducimos la contraseña pero nos dará error.
-Pero si observamos en Keepass arriba a la derecha, parece que hay un grupo de usuario llamado **penguin**:
+Pero si observamos en Keepass arriba a la derecha, parece que hay un grupo de usuarios llamado **penguin**:
 <br>
 
 ![image](https://github.com/TerrorAterrador/WriteUps/assets/146730674/b4f72b59-cc53-4554-8847-a38df4c1d4e6)
