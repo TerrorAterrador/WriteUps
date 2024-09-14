@@ -5,7 +5,7 @@ ___
 
 Gracias a la utiliadad de [autodockerlabs]() desplegaremos el contenedor de **Docker** de manera más sencillo, vemos que la [Dirección IP](<../../🐱‍💻 Introducción al Hacking/🅱 Conceptos Básicos/Dirección IP.md>) es la **172.17.0.2**.
 
-![](<../../images/Pasted image 20240914165614.png>)
+![](<../images/Pasted image 20240914165614.png>)
 
 En primer lugar, realizamos un escaneo con [Nmap](<../../🐱‍💻 Introducción al Hacking/🔎 Reconocimiento/Enumeración de información/Enumeración de Red/Nmap.md>) sbore todos los puertos de la siguiente forma:
 
